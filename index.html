@@ -1,0 +1,1403 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <title>Millionaire Wealth Blueprint | Build Your Wealth</title>
+
+    <meta name="description"
+        content="Millionaire Wealth Blueprint — a practical blueprint for building wealth, investing smarter, and creating financial freedom.">
+
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+
+    <link
+        href="https://fonts.googleapis.com/css2?family=DM+Sans:wght@400;500;600;700&family=Playfair+Display:wght@600;700;800&display=swap"
+        rel="stylesheet">
+
+    <style>
+        :root {
+            --bg: #080808;
+            --bg2: #0e0e0e;
+            --card: #121212;
+            --card2: #171717;
+            --gold: #d6ad45;
+            --gold-light: #f4d77b;
+            --gold-dark: #9b7423;
+            --text: #f5f5f5;
+            --muted: #a5a5a5;
+            --border: rgba(214, 173, 69, .22);
+        }
+
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+
+
+        html {
+            scroll-behavior: smooth;
+        }
+
+        body {
+            background: var(--bg);
+            color: var(--text);
+            font-family: "DM Sans", sans-serif;
+            line-height: 1.6;
+            overflow-x: hidden;
+        }
+
+        a {
+            color: inherit;
+            text-decoration: none;
+        }
+
+        .container {
+            width: min(1120px, 92%);
+            margin: auto;
+        }
+
+        /* NAVBAR */
+
+        nav {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            z-index: 1000;
+            background: rgba(8, 8, 8, .88);
+            backdrop-filter: blur(16px);
+            border-bottom: 1px solid rgba(255, 255, 255, .06);
+        }
+
+        .nav-inner {
+            height: 74px;
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+        }
+
+        .logo {
+            font-family: "Playfair Display", serif;
+            font-size: 20px;
+            font-weight: 800;
+            letter-spacing: -.5px;
+        }
+
+        .logo span {
+            color: var(--gold-light);
+        }
+
+        .nav-links {
+            display: flex;
+            gap: 30px;
+            align-items: center;
+        }
+
+        .nav-links a {
+            color: #bbb;
+            font-size: 14px;
+            transition: .2s;
+        }
+
+        .nav-links a:hover {
+            color: var(--gold-light);
+        }
+
+        .nav-button {
+            background: linear-gradient(135deg, var(--gold-light), var(--gold));
+            color: #080808 !important;
+            padding: 11px 19px;
+            border-radius: 7px;
+            font-weight: 800 !important;
+        }
+
+        /* HERO */
+
+        .hero {
+            min-height: 100vh;
+            display: flex;
+            align-items: center;
+            position: relative;
+            padding: 140px 0 80px;
+            overflow: hidden;
+        }
+
+        .hero::before {
+            content: "";
+            position: absolute;
+            width: 700px;
+            height: 700px;
+            background: rgba(214, 173, 69, .08);
+            filter: blur(130px);
+            border-radius: 50%;
+            top: -250px;
+            right: -250px;
+        }
+
+        .hero-grid {
+            display: grid;
+            grid-template-columns: 1.05fr .95fr;
+            gap: 70px;
+            align-items: center;
+        }
+
+        .badge {
+            display: inline-flex;
+            align-items: center;
+            gap: 8px;
+            border: 1px solid var(--border);
+            background: rgba(214, 173, 69, .06);
+            color: var(--gold-light);
+            padding: 8px 13px;
+            border-radius: 100px;
+            font-size: 12px;
+            font-weight: 700;
+            letter-spacing: .8px;
+            text-transform: uppercase;
+            margin-bottom: 24px;
+        }
+
+        .badge::before {
+            content: "";
+            width: 7px;
+            height: 7px;
+            background: var(--gold-light);
+            border-radius: 50%;
+            box-shadow: 0 0 12px var(--gold);
+        }
+
+        h1 {
+            font-family: "Playfair Display", serif;
+            font-size: clamp(48px, 6vw, 76px);
+            line-height: 1.02;
+            letter-spacing: -2.5px;
+            margin-bottom: 25px;
+        }
+
+        .gold-text {
+            background: linear-gradient(100deg, #fff0a8, #d6ad45, #fff0a8);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+        }
+
+        .hero-description {
+            color: var(--muted);
+            font-size: 18px;
+            max-width: 600px;
+            margin-bottom: 32px;
+        }
+
+        .cta-row {
+            display: flex;
+            gap: 14px;
+            flex-wrap: wrap;
+        }
+
+        .primary-btn {
+            display: inline-flex;
+            align-items: center;
+            justify-content: center;
+            background: linear-gradient(135deg, #f4d77b, #c99b32);
+            color: #090909;
+            font-weight: 800;
+            padding: 16px 27px;
+            border-radius: 8px;
+            box-shadow: 0 8px 30px rgba(214, 173, 69, .18);
+            transition: .25s;
+        }
+
+        .primary-btn:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 12px 40px rgba(214, 173, 69, .28);
+        }
+
+        .secondary-btn {
+            display: inline-flex;
+            align-items: center;
+            justify-content: center;
+            border: 1px solid #333;
+            color: #ddd;
+            padding: 16px 27px;
+            border-radius: 8px;
+            font-weight: 700;
+            transition: .25s;
+        }
+
+        .secondary-btn:hover {
+            border-color: var(--gold);
+            color: var(--gold-light);
+        }
+
+        .hero-note {
+            margin-top: 17px;
+            color: #777;
+            font-size: 12px;
+        }
+
+        /* PRODUCT MOCKUP */
+
+        .product-wrap {
+            display: flex;
+            justify-content: center;
+            perspective: 1000px;
+        }
+
+        .book {
+            width: 340px;
+            height: 455px;
+            border-radius: 5px 13px 13px 5px;
+            position: relative;
+            padding: 40px 30px;
+            background:
+                radial-gradient(circle at 50% 40%, rgba(255, 220, 120, .13), transparent 32%),
+                linear-gradient(145deg, #171717, #080808);
+            border: 1px solid rgba(214, 173, 69, .55);
+            box-shadow:
+                -14px 15px 0 #111,
+                -18px 20px 45px rgba(0, 0, 0, .7),
+                0 0 70px rgba(214, 173, 69, .12);
+            transform: rotateY(-8deg) rotateX(3deg);
+            transition: .5s;
+        }
+
+        .book:hover {
+            transform: rotateY(0deg) rotateX(0deg) translateY(-7px);
+        }
+
+        .book::after {
+            content: "";
+            position: absolute;
+            left: 0;
+            top: 0;
+            width: 7px;
+            height: 100%;
+            background: linear-gradient(#8d6720, #f0ce6a, #8d6720);
+        }
+
+        .book-top {
+            text-align: center;
+            color: var(--gold-light);
+            font-size: 10px;
+            font-weight: 800;
+            letter-spacing: 3px;
+            text-transform: uppercase;
+        }
+
+        .book h2 {
+            font-family: "Playfair Display", serif;
+            font-size: 39px;
+            line-height: 1;
+            text-align: center;
+            margin-top: 38px;
+        }
+
+        .book-line {
+            width: 65px;
+            height: 2px;
+            background: var(--gold);
+            margin: 25px auto;
+        }
+
+        .book p {
+            text-align: center;
+            color: #aaa;
+            font-size: 13px;
+        }
+
+        .book-bottom {
+            position: absolute;
+            bottom: 30px;
+            left: 0;
+            width: 100%;
+            text-align: center;
+            color: var(--gold-light);
+            font-size: 11px;
+            letter-spacing: 2px;
+            font-weight: 700;
+        }
+
+        /* SECTION */
+
+        section {
+            padding: 100px 0;
+        }
+
+        .section-label {
+            color: var(--gold-light);
+            font-size: 12px;
+            font-weight: 800;
+            letter-spacing: 2px;
+            text-transform: uppercase;
+            margin-bottom: 13px;
+        }
+
+        .section-title {
+            font-family: "Playfair Display", serif;
+            font-size: clamp(35px, 5vw, 52px);
+            line-height: 1.1;
+            margin-bottom: 16px;
+        }
+
+        .section-subtitle {
+            color: var(--muted);
+            max-width: 650px;
+        }
+
+        /* STATS */
+
+        .stats {
+            border-top: 1px solid #222;
+            border-bottom: 1px solid #222;
+            padding: 35px 0;
+        }
+
+        .stats-grid {
+            display: grid;
+            grid-template-columns: repeat(3, 1fr);
+            text-align: center;
+        }
+
+        .stat {
+            padding: 0 20px;
+            border-right: 1px solid #252525;
+        }
+
+        .stat:last-child {
+            border: 0;
+        }
+
+        .stat strong {
+            display: block;
+            color: var(--gold-light);
+            font-family: "Playfair Display", serif;
+            font-size: 32px;
+        }
+
+        .stat span {
+            color: #888;
+            font-size: 13px;
+        }
+
+        /* FEATURES */
+
+        .features {
+            background: #0b0b0b;
+        }
+
+        .features-header {
+            text-align: center;
+            margin-bottom: 55px;
+        }
+
+        .features-header .section-subtitle {
+            margin: auto;
+        }
+
+        .feature-grid {
+            display: grid;
+            grid-template-columns: repeat(3, 1fr);
+            gap: 18px;
+        }
+
+        .feature {
+            padding: 30px;
+            border: 1px solid #242424;
+            background: linear-gradient(145deg, #131313, #0d0d0d);
+            border-radius: 10px;
+            transition: .25s;
+        }
+
+        .feature:hover {
+            border-color: var(--border);
+            transform: translateY(-4px);
+        }
+
+        .feature-icon {
+            width: 45px;
+            height: 45px;
+            display: grid;
+            place-items: center;
+            border: 1px solid var(--border);
+            border-radius: 8px;
+            color: var(--gold-light);
+            font-size: 19px;
+            margin-bottom: 22px;
+        }
+
+        .feature h3 {
+            font-family: "Playfair Display", serif;
+            font-size: 21px;
+            margin-bottom: 10px;
+        }
+
+        .feature p {
+            color: #888;
+            font-size: 14px;
+        }
+
+        /* CONTENT */
+
+        .content-grid {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 70px;
+            align-items: center;
+        }
+
+        .check-list {
+            margin-top: 28px;
+            display: grid;
+            gap: 0px;
+        }
+
+        .check {
+            display: flex;
+            gap: 12px;
+            align-items: flex-start;
+            color: #ccc;
+        }
+
+        .check span {
+            color: var(--gold-light);
+            font-weight: 900;
+        }
+
+        .preview {
+            border: 1px solid #292929;
+            background: #111;
+            padding: 28px;
+            border-radius: 10px;
+            box-shadow: 0 25px 70px rgba(0, 0, 0, .35);
+        }
+
+        .preview-header {
+            display: flex;
+            justify-content: space-between;
+            border-bottom: 1px solid #292929;
+            padding-bottom: 18px;
+            margin-bottom: 22px;
+        }
+
+        .preview-header strong {
+            font-family: "Playfair Display", serif;
+        }
+
+        .preview-header span {
+            color: var(--gold-light);
+            font-size: 11px;
+        }
+
+        .chapter {
+            padding: 16px 0;
+            border-bottom: 1px solid #222;
+            display: flex;
+            gap: 15px;
+        }
+
+        .chapter-number {
+            color: var(--gold);
+            font-weight: 800;
+        }
+
+        .chapter-text strong {
+            display: block;
+            font-size: 14px;
+        }
+
+        .chapter-text span {
+            color: #777;
+            font-size: 12px;
+        }
+
+        /* TESTIMONIALS */
+
+        .testimonials {
+            background: #0b0b0b;
+        }
+
+        .testimonial-grid {
+            display: grid;
+            grid-template-columns: repeat(3, 1fr);
+            gap: 18px;
+            margin-top: 45px;
+        }
+
+        .testimonial {
+            padding: 28px;
+            background: #111;
+            border: 1px solid #252525;
+            border-radius: 10px;
+        }
+
+        .stars {
+            color: var(--gold-light);
+            letter-spacing: 2px;
+            margin-bottom: 18px;
+        }
+
+        .testimonial p {
+            color: #bbb;
+            font-size: 14px;
+            margin-bottom: 20px;
+        }
+
+        .person {
+            color: #777;
+            font-size: 12px;
+        }
+
+        /* PRICING */
+
+        /* PRICING */
+
+        .pricing {
+            text-align: center;
+            background: #080808;
+        }
+
+
+        .check-list {
+            list-style: none;
+            margin-bottom: 32px;
+        }
+
+        .check-list li {
+            margin: 6px 0;
+            color: #ccc;
+            font-size: 14px;
+        }
+
+        .check-list li::before {
+            content: "✓";
+            color: var(--gold-light);
+            margin-right: 12px;
+        }
+
+        .price-card {
+            max-width: 520px;
+            margin: auto;
+            padding: 48px;
+            border: 1px solid var(--border);
+            border-radius: 14px;
+            background:
+                linear-gradient(145deg, #121212, #080808);
+            box-shadow: 0 30px 100px rgba(0, 0, 0, .5);
+        }
+
+        .price-label {
+            color: #888;
+            text-transform: uppercase;
+            letter-spacing: 2px;
+            font-size: 11px;
+        }
+
+        .price {
+            font-family: "Playfair Display", serif;
+            font-size: 70px;
+            margin: 12px 0;
+        }
+
+        .price span {
+            font-size: 20px;
+            color: #777;
+        }
+
+        .price-card p {
+            color: #888;
+            margin-bottom: 30px;
+        }
+
+        .price-btn {
+            width: 100%;
+            border: none;
+            cursor: pointer;
+            font-size: 15px;
+        }
+
+        /* FAQ */
+
+        .faq {
+            max-width: 760px;
+            margin: 45px auto 0;
+        }
+
+        details {
+            border-bottom: 1px solid #292929;
+            padding: 20px 0;
+        }
+
+        summary {
+            cursor: pointer;
+            list-style: none;
+            font-weight: 700;
+        }
+
+        summary::-webkit-details-marker {
+            display: none;
+        }
+
+        details p {
+            color: #888;
+            margin-top: 12px;
+            font-size: 14px;
+        }
+
+        /* FINAL CTA */
+
+        .final-cta {
+            padding: 120px 0;
+            text-align: center;
+            position: relative;
+            overflow: hidden;
+        }
+
+        .final-cta::before {
+            content: "";
+            position: absolute;
+            width: 500px;
+            height: 500px;
+            background: rgba(214, 173, 69, .08);
+            filter: blur(120px);
+            border-radius: 50%;
+            left: 50%;
+            top: 30%;
+            transform: translate(-50%, -50%);
+        }
+
+        .final-cta>.container {
+            position: relative;
+        }
+
+        .final-cta h2 {
+            font-family: "Playfair Display", serif;
+            font-size: clamp(40px, 6vw, 65px);
+            line-height: 1.05;
+            max-width: 850px;
+            margin: auto auto 20px;
+        }
+
+        .final-cta p {
+            color: #888;
+            max-width: 570px;
+            margin: 0 auto 30px;
+        }
+
+        /* FOOTER */
+
+        footer {
+            border-top: 1px solid #222;
+            padding: 30px 0;
+            color: #666;
+            font-size: 12px;
+        }
+
+        .footer-inner {
+            display: flex;
+            justify-content: space-between;
+            gap: 20px;
+        }
+
+        .footer-links {
+            display: flex;
+            gap: 20px;
+        }
+
+        .footer-links a:hover {
+            color: var(--gold-light);
+        }
+
+        /* MOBILE */
+
+        @media(max-width: 800px) {
+
+            .nav-links {
+                display: none;
+            }
+
+            .hero-grid,
+            .content-grid {
+                grid-template-columns: 1fr;
+                gap: 55px;
+            }
+
+            .hero {
+                padding-top: 120px;
+            }
+
+            .hero-description {
+                font-size: 16px;
+            }
+
+            .product-wrap {
+                order: -1;
+            }
+
+            .book {
+                width: 285px;
+                height: 390px;
+            }
+
+            .book h2 {
+                font-size: 32px;
+            }
+
+            .feature-grid,
+            .testimonial-grid {
+                grid-template-columns: 1fr;
+            }
+
+            .stats-grid {
+                grid-template-columns: 1fr;
+                gap: 25px;
+            }
+
+            .stat {
+                border-right: 0;
+                border-bottom: 1px solid #252525;
+                padding-bottom: 22px;
+            }
+
+            .stat:last-child {
+                border-bottom: 0;
+                padding-bottom: 0;
+            }
+
+            .price-card {
+                padding: 30px 22px;
+            }
+
+            .footer-inner {
+                flex-direction: column;
+            }
+        }
+    </style>
+</head>
+
+<body>
+
+    <!-- NAVIGATION -->
+
+    <nav>
+        <div class="container nav-inner">
+
+            <a href="#" class="logo">
+                MILLIONAIRE <span>WEALTH</span>
+            </a>
+
+            <div class="nav-links">
+                <a href="#blueprint">Blueprint</a>
+                <a href="#benefits">Benefits</a>
+                <a href="#reviews">Reviews</a>
+                <a href="#faq">FAQ</a>
+                <a href="#buy" class="nav-button">GET THE BLUEPRINT</a>
+            </div>
+
+        </div>
+    </nav>
+
+
+    <!-- HERO -->
+
+    <section class="hero">
+
+        <div class="container hero-grid">
+
+            <div>
+
+                <div class="badge">
+                    The Wealth Blueprint
+                </div>
+
+                <h1>
+                    Build Wealth With a
+                    <span class="gold-text">Blueprint.</span>
+                </h1>
+
+                <p class="hero-description">
+                    Stop guessing what to do with your money. The Millionaire Wealth Blueprint gives you a clear
+                    framework for understanding money, investing, building income, and creating long-term wealth.
+                </p>
+
+                <div class="cta-row">
+
+                    <a href="#buy" class="primary-btn">
+                        GET THE BLUEPRINT →
+                    </a>
+
+                    <a href="#blueprint" class="secondary-btn">
+                        SEE WHAT'S INSIDE
+                    </a>
+
+                </div>
+
+                <div class="hero-note">
+                    Instant digital access • Learn at your own pace
+                </div>
+
+            </div>
+
+
+            <div class="product-wrap">
+
+                <div class="book">
+
+                    <div class="book-top">
+                        Premium Wealth Guide
+                    </div>
+
+                    <h2>
+                        MILLIONAIRE<br>
+                        WEALTH<br>
+                        <span class="gold-text">BLUEPRINT</span>
+                    </h2>
+
+                    <div class="book-line"></div>
+
+                    <p>
+                        The framework for building wealth,
+                        investing intelligently & creating
+                        financial freedom.
+                    </p>
+
+                    <div class="book-bottom">
+                        BUILD • INVEST • GROW
+                    </div>
+
+                </div>
+
+            </div>
+
+        </div>
+
+    </section>
+
+
+    <!-- STATS -->
+
+    <div class="stats">
+
+        <div class="container stats-grid">
+
+            <div class="stat">
+                <strong>01</strong>
+                <span>Complete Wealth Framework</span>
+            </div>
+
+            <div class="stat">
+                <strong>∞</strong>
+                <span>Lifetime Digital Access</span>
+            </div>
+
+            <div class="stat">
+                <strong>100%</strong>
+                <span>Learn At Your Own Pace</span>
+            </div>
+
+        </div>
+
+    </div>
+
+
+    <!-- BENEFITS -->
+
+    <section class="features" id="benefits">
+
+        <div class="container">
+
+            <div class="features-header">
+
+                <div class="section-label">
+                    What's Inside
+                </div>
+
+                <h2 class="section-title">
+                    Your Roadmap To Wealth
+                </h2>
+
+                <p class="section-subtitle">
+                    Everything is organized into a simple framework designed to help you understand the fundamentals of
+                    building and protecting wealth.
+                </p>
+
+            </div>
+
+
+            <div class="feature-grid">
+
+                <div class="feature">
+
+                    <div class="feature-icon">◆</div>
+
+                    <h3>Money Mindset</h3>
+
+                    <p>
+                        Develop the habits, discipline, and thinking patterns that can help you make better financial
+                        decisions.
+                    </p>
+
+                </div>
+
+
+                <div class="feature">
+
+                    <div class="feature-icon">↗</div>
+
+                    <h3>Investing Fundamentals</h3>
+
+                    <p>
+                        Understand the foundations of investing and how different assets can fit into a long-term
+                        strategy.
+                    </p>
+
+                </div>
+
+
+                <div class="feature">
+
+                    <div class="feature-icon">$</div>
+
+                    <h3>Build More Income</h3>
+
+                    <p>
+                        Explore different ways to increase your earning power and create additional income
+                        opportunities.
+                    </p>
+
+                </div>
+
+
+                <div class="feature">
+
+                    <div class="feature-icon">◈</div>
+
+                    <h3>Wealth Strategy</h3>
+
+                    <p>
+                        Learn how saving, investing, compounding, and time can work together to build long-term wealth.
+                    </p>
+
+                </div>
+
+
+                <div class="feature">
+
+                    <div class="feature-icon">✓</div>
+
+                    <h3>Action Framework</h3>
+
+                    <p>
+                        Turn what you learn into an organized financial action plan instead of simply consuming
+                        information.
+                    </p>
+
+                </div>
+
+
+                <div class="feature">
+
+                    <div class="feature-icon">∞</div>
+
+                    <h3>Lifetime Access</h3>
+
+                    <p>
+                        Keep your digital blueprint and return to the material whenever you need to refresh your
+                        strategy.
+                    </p>
+
+                </div>
+
+            </div>
+
+        </div>
+
+    </section>
+
+
+    <!-- BLUEPRINT -->
+
+    <section id="blueprint">
+
+        <div class="container content-grid">
+
+            <div>
+
+                <div class="section-label">
+                    Inside The Blueprint
+                </div>
+
+                <h2 class="section-title">
+                    Stop Searching.<br>
+                    Start Following A Plan.
+                </h2>
+
+                <p class="section-subtitle">
+                    This framework is designed to help you understand the key principles of building wealth and turn
+                    them into practical actions you can follow throughout your financial journey.
+                </p>
+
+
+                <div class="check-list">
+
+                    <div class="check">
+                        <span>✓</span>
+                        <div>Understand the fundamentals of personal wealth</div>
+                    </div>
+
+                    <div class="check">
+                        <span>✓</span>
+                        <div>Learn the principles behind long-term investing</div>
+                    </div>
+
+                    <div class="check">
+                        <span>✓</span>
+                        <div>Understand the power of compound growth</div>
+                    </div>
+
+                    <div class="check">
+                        <span>✓</span>
+                        <div>Create a structured wealth-building strategy</div>
+                    </div>
+
+                    <div class="check">
+                        <span>✓</span>
+                        <div>Build better financial habits and discipline</div>
+                    </div>
+
+                </div>
+
+            </div>
+
+
+            <div class="preview">
+
+                <div class="preview-header">
+
+                    <strong>BLUEPRINT CONTENT</strong>
+
+                    <span>MODULES</span>
+
+                </div>
+
+
+                <div class="chapter">
+
+                    <div class="chapter-number">01</div>
+
+                    <div class="chapter-text">
+                        <strong>The Millionaire Mindset</strong>
+                        <span>How wealthy thinking changes your decisions</span>
+                    </div>
+
+                </div>
+
+
+                <div class="chapter">
+
+                    <div class="chapter-number">02</div>
+
+                    <div class="chapter-text">
+                        <strong>Master Your Money</strong>
+                        <span>Build a strong financial foundation</span>
+                    </div>
+
+                </div>
+
+
+                <div class="chapter">
+
+                    <div class="chapter-number">03</div>
+
+                    <div class="chapter-text">
+                        <strong>The Investing Blueprint</strong>
+                        <span>Understand assets and long-term investing</span>
+                    </div>
+
+                </div>
+
+
+                <div class="chapter">
+
+                    <div class="chapter-number">04</div>
+
+                    <div class="chapter-text">
+                        <strong>Build Multiple Income Streams</strong>
+                        <span>Explore opportunities to increase income</span>
+                    </div>
+
+                </div>
+
+
+                <div class="chapter">
+
+                    <div class="chapter-number">05</div>
+
+                    <div class="chapter-text">
+                        <strong>Your Wealth Action Plan</strong>
+                        <span>Turn knowledge into action</span>
+                    </div>
+
+                </div>
+
+            </div>
+
+        </div>
+
+    </section>
+
+
+    <!-- TESTIMONIALS -->
+
+    <section class="testimonials" id="reviews">
+
+        <div class="container">
+
+            <div class="features-header">
+
+                <div class="section-label">
+                    Community
+                </div>
+
+                <h2 class="section-title">
+                    Built For People Who Want More
+                </h2>
+
+            </div>
+
+
+            <div class="testimonial-grid">
+
+                <div class="testimonial">
+
+                    <div class="stars">★★★★★</div>
+
+                    <p>
+                        “I’ve gone through a lot of financial content online, but this made everything feel much more
+                        organized. I finally had a framework I could come back to instead of constantly looking for the
+                        next video.”
+                    </p>
+
+                    <div class="person">
+                        — Michael R., 57
+                    </div>
+
+                </div>
+
+
+                <div class="testimonial">
+
+                    <div class="stars">★★★★★</div>
+
+                    <p>
+                        “The biggest difference for me was having everything laid out in one place. It helped me
+                        understand what I should focus on and gave me a much clearer direction with my finances.” </p>
+
+                    <div class="person">
+                        — Jessica M., 31
+                    </div>
+
+                </div>
+
+
+                <div class="testimonial">
+
+                    <div class="stars">★★★★★</div>
+
+                    <p>
+                        "Simple, straightforward and motivating. It gave me a much clearer direction for my financial
+                        goals."
+                    </p>
+
+                    <div class="person">
+                        — Daniel T., 24
+                    </div>
+
+                </div>
+
+            </div>
+
+        </div>
+
+    </section>
+
+
+    <!-- PRICING -->
+
+    <section class="pricing" id="buy">
+
+        <div class="container">
+
+            <div class="section-label">
+                Get Access
+            </div>
+
+            <h2 class="section-title">
+                Your Wealth Journey Starts Here.
+            </h2>
+
+            <p class="section-subtitle" style="margin:auto;">
+                Get instant access to the Millionaire Wealth Blueprint and start building your personal wealth
+                framework.
+            </p>
+
+            <br><br>
+            <div class="price-card">
+
+                <div class="price-label">
+                    MILLIONAIRE WEALTH BLUEPRINT
+                </div>
+
+                <div class="price">
+                    $49<span> one-time</span>
+                </div>
+
+                <p>
+                    Instant digital access
+                </p>
+
+                <ul class="check-list" style="text-align:center;">
+                    <li>Millionaire Wealth Blueprint</li>
+                    <li>Growth Stocks Framework</li>
+                    <li>Investor research principles</li>
+                    <li>Wealth-building strategies</li>
+                    <li>Risk management framework</li>
+                    <li>Instant digital delivery</li>
+                </ul>
+
+                <!-- REPLACE THIS LINK WITH YOUR CHECKOUT -->
+
+                <a href="https://payhip.com/b/vXTBi" class="primary-btn price-btn">
+                    GET INSTANT ACCESS →
+                </a>
+
+            </div>
+
+        </div>
+
+    </section>
+
+
+    <!-- FAQ -->
+
+    <section id="faq">
+
+        <div class="container">
+
+            <div class="features-header">
+
+                <div class="section-label">
+                    FAQ
+                </div>
+
+                <h2 class="section-title">
+                    Frequently Asked Questions
+                </h2>
+
+            </div>
+
+
+            <div class="faq">
+
+                <details>
+                    <summary>What is the Millionaire Wealth Blueprint?</summary>
+
+                    <p>
+                        The Millionaire Wealth Blueprint is a digital educational guide designed to help you understand the fundamentals of building wealth. It covers key principles around investing, income growth, financial habits, and long-term wealth building—all organized into one easy-to-follow framework.
+                    </p>
+
+                </details>
+                <details>
+                    <summary>Who is the Millionaire Wealth Blueprint for?</summary>
+
+                    <p>
+It’s designed for people who want a clearer understanding of how wealth is built and want a structured framework instead of piecing together information from countless sources.                    </p>
+
+                </details>
+
+
+                <details>
+                    <summary>How do I receive the blueprint?</summary>
+
+                    <p>
+After completing your purchase, you’ll receive instant digital access to the Millionaire Wealth Blueprint as a PDF. Your access details will be provided immediately after checkout, so you can start reading right away.                    </p>
+
+                </details>
+                
+
+
+              
+
+                <details>
+                    <summary>Do I need investing experience?</summary>
+
+                    <p>
+                        Yes. No prior investing experience is required. The material is designed to explain fundamental concepts in a straightforward way, making it accessible whether you're just getting started or looking to strengthen your existing knowledge.
+                    </p>
+
+                </details>
+
+
+               
+
+            </div>
+
+        </div>
+
+    </section>
+
+
+    <!-- FINAL CTA -->
+
+    <section class="final-cta">
+
+        <div class="container">
+
+            <div class="section-label">
+                The First Step
+            </div>
+
+            <h2>
+                Your Future Wealth Is Built One Decision At A Time.
+            </h2>
+
+            <p>
+                Get the Millionaire Wealth Blueprint and start creating a more intentional strategy for your financial
+                future.
+            </p>
+
+            <a href="#buy" class="primary-btn">
+                GET THE BLUEPRINT →
+            </a>
+
+        </div>
+
+    </section>
+
+
+    <!-- FOOTER -->
+
+    <footer>
+
+        <div class="container footer-inner">
+
+            <div>
+                © 2026 Millionaire Wealth Blueprint. All rights reserved.
+            </div>
+
+            <div class="footer-links">
+                <a href="#">Privacy</a>
+                <a href="#">Terms</a>
+                <a href="#">Contact</a>
+            </div>
+
+        </div>
+
+    </footer>
+
+</body>
+
+</html>
