@@ -7,7 +7,7 @@
 
     <title> Wealth Blueprint | Build Your Wealth</title>
     <link rel="icon" type="image/svg+xml"
-href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'%3E%3Crect width='100' height='100' rx='20' fill='%23080808'/%3E%3Ctext x='50' y='65' font-family='serif' font-size='48' font-weight='bold' text-anchor='middle' fill='%23d6ad45'%3EWB%3C/text%3E%3C/svg%3E">
+        href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'%3E%3Crect width='100' height='100' rx='20' fill='%23080808'/%3E%3Ctext x='50' y='65' font-family='serif' font-size='48' font-weight='bold' text-anchor='middle' fill='%23d6ad45'%3EWB%3C/text%3E%3C/svg%3E">
 
     <meta name="description"
         content=" Wealth Blueprint — a practical blueprint for building wealth, investing smarter, and creating financial freedom.">
@@ -716,16 +716,52 @@ href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 
 
         /* MEMBER COUNT */
         .member-counter {
-            position: absolute; top: 92px; left: 50%; transform: translateX(-50%);
-            z-index: 10; display: flex; align-items: center; gap: 12px;
-            padding: 10px 18px; border: 1px solid var(--border); border-radius: 100px;
-            background: rgba(18,18,18,.78); backdrop-filter: blur(14px);
-            box-shadow: 0 10px 35px rgba(0,0,0,.25); white-space: nowrap;
+            position: absolute;
+            top: 92px;
+            left: 50%;
+            transform: translateX(-50%);
+            z-index: 10;
+            display: flex;
+            align-items: center;
+            gap: 12px;
+            padding: 10px 18px;
+            border: 1px solid var(--border);
+            border-radius: 100px;
+            background: rgba(18, 18, 18, .78);
+            backdrop-filter: blur(14px);
+            box-shadow: 0 10px 35px rgba(0, 0, 0, .25);
+            white-space: nowrap;
         }
-        .member-pulse { width: 9px; height: 9px; border-radius: 50%; background: var(--gold-light); box-shadow: 0 0 0 0 rgba(244,215,123,.55); animation: memberPulse 1.8s infinite; }
-        .member-text { color: #aaa; font-size: 13px; }
-        .member-count { color: var(--gold-light); font-weight: 800; font-size: 16px; }
-        @keyframes memberPulse { 70% { box-shadow: 0 0 0 9px rgba(244,215,123,0); } 100% { box-shadow: 0 0 0 0 rgba(244,215,123,0); } }
+
+        .member-pulse {
+            width: 9px;
+            height: 9px;
+            border-radius: 50%;
+            background: var(--gold-light);
+            box-shadow: 0 0 0 0 rgba(244, 215, 123, .55);
+            animation: memberPulse 1.8s infinite;
+        }
+
+        .member-text {
+            color: #aaa;
+            font-size: 13px;
+        }
+
+        .member-count {
+            color: var(--gold-light);
+            font-weight: 800;
+            font-size: 16px;
+        }
+
+        @keyframes memberPulse {
+            70% {
+                box-shadow: 0 0 0 9px rgba(244, 215, 123, 0);
+            }
+
+            100% {
+                box-shadow: 0 0 0 0 rgba(244, 215, 123, 0);
+            }
+        }
 
         /* MOBILE */
 
@@ -835,10 +871,9 @@ href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 
                 </div>
 
                 <h1>
-                    Build Wealth With a 
-                    <span class="gold-text">Blueprint</span>
+                    Find The Next
+                    <span class="gold-text"><span style="font-size: 1.1em;">10</span><span style="font-size: 0.85em;">x</span> Stock</span>
                 </h1>
-
                 <p class="hero-description">
                     Learn how to spot high-growth opportunities, invest smarter, build valuable investing skills, and
                     create lasting wealth.
@@ -1053,7 +1088,7 @@ href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 
                 </div>
 
                 <h2 class="section-title">
-                  From Finding The Opportunity <br> To Building Wealth.
+                    From Finding The Opportunity <br> To Building Wealth.
                 </h2>
 
                 <p class="section-subtitle">
@@ -1105,7 +1140,7 @@ href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 
 
                 </div>
 
-               
+
 
                 <div class="chapter">
 
@@ -1117,7 +1152,7 @@ href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 
                     </div>
 
                 </div>
-                   <div class="chapter">
+                <div class="chapter">
 
                     <div class="chapter-number">02</div>
 
@@ -1127,7 +1162,7 @@ href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 
                     </div>
 
                 </div>
-                
+
 
 
                 <div class="chapter">
@@ -1154,7 +1189,7 @@ href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 
                 </div>
 
 
-              
+
 
 
                 <div class="chapter">
@@ -1434,32 +1469,32 @@ href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 
 
 </html>
 <script>
-const counter = document.getElementById("memberCount");
+    const counter = document.getElementById("memberCount");
 
-const start = 0;
-const target = 327;
-const duration = 3500;
+    const start = 0;
+    const target = 327;
+    const duration = 3500;
 
-let startTime = null;
+    let startTime = null;
 
-function animateCount(timestamp) {
-    if (!startTime) startTime = timestamp;
+    function animateCount(timestamp) {
+        if (!startTime) startTime = timestamp;
 
-    const progress = Math.min((timestamp - startTime) / duration, 1);
+        const progress = Math.min((timestamp - startTime) / duration, 1);
 
-    // Fast start, smooth slowdown
-    const easeOut = 1 - Math.pow(1 - progress, 3);
+        // Fast start, smooth slowdown
+        const easeOut = 1 - Math.pow(1 - progress, 3);
 
-    const current = Math.floor(start + (target - start) * easeOut);
+        const current = Math.floor(start + (target - start) * easeOut);
 
-    counter.textContent = current + "+";
+        counter.textContent = current + "+";
 
-    if (progress < 1) {
-        requestAnimationFrame(animateCount);
-    } else {
-        counter.textContent = target + "+";
+        if (progress < 1) {
+            requestAnimationFrame(animateCount);
+        } else {
+            counter.textContent = target + "+";
+        }
     }
-}
 
-requestAnimationFrame(animateCount);
+    requestAnimationFrame(animateCount);
 </script>
