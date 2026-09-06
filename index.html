@@ -711,6 +711,20 @@
             color: var(--gold-light);
         }
 
+
+        /* MEMBER COUNT */
+        .member-counter {
+            position: absolute; top: 92px; left: 50%; transform: translateX(-50%);
+            z-index: 10; display: flex; align-items: center; gap: 12px;
+            padding: 10px 18px; border: 1px solid var(--border); border-radius: 100px;
+            background: rgba(18,18,18,.78); backdrop-filter: blur(14px);
+            box-shadow: 0 10px 35px rgba(0,0,0,.25); white-space: nowrap;
+        }
+        .member-pulse { width: 9px; height: 9px; border-radius: 50%; background: var(--gold-light); box-shadow: 0 0 0 0 rgba(244,215,123,.55); animation: memberPulse 1.8s infinite; }
+        .member-text { color: #aaa; font-size: 13px; }
+        .member-count { color: var(--gold-light); font-weight: 800; font-size: 16px; }
+        @keyframes memberPulse { 70% { box-shadow: 0 0 0 9px rgba(244,215,123,0); } 100% { box-shadow: 0 0 0 0 rgba(244,215,123,0); } }
+
         /* MOBILE */
 
         @media(max-width: 800px) {
@@ -804,6 +818,11 @@
     <!-- HERO -->
 
     <section class="hero">
+        <div class="member-counter" aria-label="Growing member count">
+            <span class="member-pulse"></span>
+            <span class="member-text">Growing community:</span>
+            <span class="member-count" id="memberCount">0+</span>Members
+        </div>
 
         <div class="container hero-grid">
 
@@ -814,8 +833,8 @@
                 </div>
 
                 <h1>
-                    Find The Next
-                    <span class="gold-text">10X Stock.</span>
+                    Build Wealth With a 
+                    <span class="gold-text">Blueprint</span>
                 </h1>
 
                 <p class="hero-description">
@@ -1412,3 +1431,33 @@
 </body>
 
 </html>
+<script>
+const counter = document.getElementById("memberCount");
+
+const start = 10;
+const target = 327;
+const duration = 2500;
+
+let startTime = null;
+
+function animateCount(timestamp) {
+    if (!startTime) startTime = timestamp;
+
+    const progress = Math.min((timestamp - startTime) / duration, 1);
+
+    // Fast start, smooth slowdown
+    const easeOut = 1 - Math.pow(1 - progress, 3);
+
+    const current = Math.floor(start + (target - start) * easeOut);
+
+    counter.textContent = current + "+";
+
+    if (progress < 1) {
+        requestAnimationFrame(animateCount);
+    } else {
+        counter.textContent = target + "+";
+    }
+}
+
+requestAnimationFrame(animateCount);
+</script>
