@@ -5,27 +5,32 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
-    <title>Millionaire Wealth Blueprint</title>
+    <title> Wealth Blueprint</title>
+    <link rel="icon" type="image/svg+xml"
+        href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'%3E%3Crect width='100' height='100' rx='20' fill='%23080808'/%3E%3Ctext x='50' y='65' font-family='serif' font-size='48' font-weight='bold' text-anchor='middle' fill='%23d6ad45'%3EWB%3C/text%3E%3C/svg%3E">
+
+    <meta name="description"
+        content=" Wealth Blueprint — a practical blueprint for building wealth, investing smarter, and creating financial freedom.">
 
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+
     <link
-        href="https://fonts.googleapis.com/css2?family=DM+Sans:wght@400;500;600;700&family=Playfair+Display:wght@500;600;700;800&display=swap"
+        href="https://fonts.googleapis.com/css2?family=DM+Sans:wght@400;500;600;700&family=Playfair+Display:wght@600;700;800&display=swap"
         rel="stylesheet">
 
     <style>
         :root {
-            --bg: #070707;
-            --bg2: #0a0a0a;
-            --card: #101010;
-            --card2: #0d0d0d;
-            --white: #f5f3ed;
-            --muted: #969691;
-            --muted2: #686863;
-            --gold: #e8c45b;
-            --gold2: #f5d879;
-            --line: rgba(255, 255, 255, .075);
-            --goldline: rgba(232, 196, 91, .22);
+            --bg: #080808;
+            --bg2: #0e0e0e;
+            --card: #121212;
+            --card2: #171717;
+            --gold: #d6ad45;
+            --gold-light: #f4d77b;
+            --gold-dark: #9b7423;
+            --text: #f5f5f5;
+            --muted: #a5a5a5;
+            --border: rgba(214, 173, 69, .22);
         }
 
         * {
@@ -34,44 +39,45 @@
             box-sizing: border-box;
         }
 
+
+
         html {
             scroll-behavior: smooth;
         }
 
         body {
             background: var(--bg);
-            color: var(--white);
+            color: var(--text);
             font-family: "DM Sans", sans-serif;
-            line-height: 1.5;
+            line-height: 1.6;
+            overflow-x: hidden;
         }
 
         a {
-            text-decoration: none;
             color: inherit;
+            text-decoration: none;
         }
 
         .container {
-            width: min(1120px, calc(100% - 48px));
+            width: min(1120px, 92%);
             margin: auto;
         }
 
+        /* NAVBAR */
 
-        /* =========================
-   NAV
-========================= */
-
-        .nav {
-            height: 72px;
-            position: sticky;
+        nav {
+            position: fixed;
             top: 0;
-            z-index: 100;
-            border-bottom: 1px solid var(--line);
-            background: rgba(7, 7, 7, .92);
-            backdrop-filter: blur(18px);
+            left: 0;
+            width: 100%;
+            z-index: 1000;
+            background: rgba(8, 8, 8, .88);
+            backdrop-filter: blur(16px);
+            border-bottom: 1px solid rgba(255, 255, 255, .06);
         }
 
         .nav-inner {
-            height: 100%;
+            height: 74px;
             display: flex;
             align-items: center;
             justify-content: space-between;
@@ -79,1258 +85,756 @@
 
         .logo {
             font-family: "Playfair Display", serif;
-            font-size: 18px;
-            font-weight: 700;
+            font-size: 20px;
+            font-weight: 800;
+            letter-spacing: -.5px;
         }
 
         .logo span {
-            color: var(--gold);
+            color: var(--gold-light);
         }
 
         .nav-links {
             display: flex;
             gap: 30px;
-            color: #898984;
-            font-size: 12px;
+            align-items: center;
+        }
+
+        .nav-links a {
+            color: #bbb;
+            font-size: 14px;
+            transition: .2s;
         }
 
         .nav-links a:hover {
-            color: white;
+            color: var(--gold-light);
         }
 
         .nav-button {
-            background: var(--gold);
-            color: #080808;
-            padding: 12px 20px;
-            border-radius: 6px;
-            font-size: 10px;
-            font-weight: 800;
+            background: linear-gradient(135deg, var(--gold-light), var(--gold));
+            color: #080808 !important;
+            padding: 11px 19px;
+            border-radius: 7px;
+            font-weight: 800 !important;
         }
 
-
-        /* =========================
-   HERO
-========================= */
+        /* HERO */
 
         .hero {
-            padding: 82px 0 85px;
+            min-height: 100vh;
+            display: flex;
+            align-items: center;
             position: relative;
+            padding: 140px 0 80px;
             overflow: hidden;
         }
 
-        .hero:after {
+        .hero::before {
             content: "";
             position: absolute;
-            width: 650px;
-            height: 650px;
+            width: 700px;
+            height: 700px;
+            background: rgba(214, 173, 69, .08);
+            filter: blur(130px);
+            border-radius: 50%;
+            top: -250px;
             right: -250px;
-            top: -100px;
-            background: radial-gradient(circle,
-                    rgba(232, 196, 91, .09),
-                    transparent 68%);
-            pointer-events: none;
         }
 
         .hero-grid {
             display: grid;
-            grid-template-columns: 1fr .82fr;
-            gap: 75px;
+            grid-template-columns: 1.05fr .95fr;
+            gap: 70px;
             align-items: center;
         }
 
-        .hero-copy {
-            max-width: 600px;
-        }
-
-        .eyebrow {
+        .badge {
             display: inline-flex;
             align-items: center;
             gap: 8px;
+            border: 1px solid var(--border);
+            background: rgba(214, 173, 69, .06);
+            color: var(--gold-light);
             padding: 8px 13px;
-            border: 1px solid var(--goldline);
             border-radius: 100px;
-            color: var(--gold);
-            font-size: 9px;
-            letter-spacing: 1.8px;
+            font-size: 12px;
             font-weight: 700;
+            letter-spacing: .8px;
+            text-transform: uppercase;
             margin-bottom: 24px;
         }
 
-        .dot {
-            width: 6px;
-            height: 6px;
+        .badge::before {
+            content: "";
+            width: 7px;
+            height: 7px;
+            background: var(--gold-light);
             border-radius: 50%;
-            background: var(--gold);
+            box-shadow: 0 0 12px var(--gold);
         }
 
         h1 {
             font-family: "Playfair Display", serif;
-            font-size: clamp(52px, 6vw, 77px);
-            line-height: .96;
-            letter-spacing: -3px;
+            font-size: clamp(48px, 6vw, 76px);
+            line-height: 1.02;
+            letter-spacing: -2.5px;
             margin-bottom: 25px;
         }
 
-        .gold {
-            color: #f2c94c;
-            white-space: nowrap;
+        .gold-text {
+            background: linear-gradient(100deg, #fff0a8, #d6ad45, #fff0a8);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
         }
 
         .hero-description {
-            color: #a3a39e;
-            font-size: 15px;
-            line-height: 1.75;
-            max-width: 550px;
-            margin-bottom: 26px;
+            color: var(--muted);
+            font-size: 18px;
+            max-width: 600px;
+            margin-bottom: 32px;
         }
 
-        .features {
-            display: grid;
-            grid-template-columns: repeat(2, minmax(0, 1fr));
-            gap: 12px 24px;
-            margin-bottom: 28px;
-        }
-
-        .feature {
+        .cta-row {
             display: flex;
-            align-items: center;
-            white-space: nowrap;
-            font-size: 11px;
-            color: #c2c2bd;
+            gap: 14px;
+            flex-wrap: wrap;
         }
 
-        .feature span {
-            flex: 0 0 auto;
-            color: var(--gold);
-            margin-right: 7px;
-        }
-
-        @media(max-width:560px) {
-
-            .features {
-                display: flex;
-                flex-direction: column;
-                align-items: center;
-                width: fit-content;
-                max-width: 100%;
-                margin: 0 auto 28px;
-                gap: 10px;
-            }
-
-            .feature {
-                display: flex;
-                align-items: center;
-                justify-content: flex-start;
-                width: 100%;
-                font-size: 11px;
-                white-space: nowrap;
-                color: #c2c2bd;
-            }
-
-            .feature span {
-                flex: 0 0 auto;
-                color: var(--gold);
-                margin-right: 7px;
-            }
-
-        }
-
-        .actions {
-            display: flex;
-            gap: 10px;
-        }
-
-        .primary {
+        .primary-btn {
             display: inline-flex;
-            justify-content: center;
             align-items: center;
-            padding: 16px 24px;
-            border-radius: 7px;
-            background: linear-gradient(135deg, #f5d879, #d8ad3d);
-            color: #080808;
-            font-size: 11px;
+            justify-content: center;
+            background: linear-gradient(135deg, #f4d77b, #c99b32);
+            color: #090909;
             font-weight: 800;
-            box-shadow: 0 12px 35px rgba(232, 196, 91, .12);
+            padding: 16px 27px;
+            border-radius: 8px;
+            box-shadow: 0 8px 30px rgba(214, 173, 69, .18);
             transition: .25s;
         }
 
-        .primary:hover {
+        .primary-btn:hover {
             transform: translateY(-2px);
+            box-shadow: 0 12px 40px rgba(214, 173, 69, .28);
         }
 
-        .secondary {
+        .secondary-btn {
             display: inline-flex;
             align-items: center;
             justify-content: center;
-            padding: 15px 22px;
-            border: 1px solid #30302e;
-            border-radius: 7px;
-            color: #ccc;
-            font-size: 11px;
+            border: 1px solid #333;
+            color: #ddd;
+            padding: 16px 27px;
+            border-radius: 8px;
+            font-weight: 700;
+            transition: .25s;
         }
 
-        .trust {
+        .secondary-btn:hover {
+            border-color: var(--gold);
+            color: var(--gold-light);
+        }
+
+        .hero-note {
             margin-top: 17px;
-            display: flex;
-            align-items: center;
-            gap: 10px;
-            color: #60605b;
-            font-size: 10px;
+            color: #777;
+            font-size: 12px;
         }
 
-        .stars {
-            color: var(--gold);
-            letter-spacing: 2px;
-        }
+        /* PRODUCT MOCKUP */
 
-
-        /* BOOK */
-
-        .book-area {
+        .product-wrap {
             display: flex;
             justify-content: center;
-            position: relative;
-        }
-
-        .book-glow {
-            position: absolute;
-            width: 400px;
-            height: 400px;
-            background: radial-gradient(circle,
-                    rgba(232, 196, 91, .14),
-                    transparent 65%);
+            perspective: 1000px;
         }
 
         .book {
-            width: 310px;
-            height: 450px;
+            width: 340px;
+            height: 455px;
+            border-radius: 5px 13px 13px 5px;
             position: relative;
-            z-index: 2;
-            padding: 40px 31px;
-
-            border-left: 6px solid #b88c25;
-            border-top: 1px solid #80631d;
-            border-right: 1px solid #665019;
-            border-bottom: 1px solid #665019;
-            border-radius: 3px 13px 13px 3px;
-
-            background: linear-gradient(145deg, #171717, #090909);
-
+            padding: 40px 30px;
+            background:
+                radial-gradient(circle at 50% 40%, rgba(255, 220, 120, .13), transparent 32%),
+                linear-gradient(145deg, #171717, #080808);
+            border: 1px solid rgba(214, 173, 69, .55);
             box-shadow:
-                20px 25px 0 rgba(0, 0, 0, .3),
-                0 35px 75px rgba(0, 0, 0, .7);
+                -14px 15px 0 #111,
+                -18px 20px 45px rgba(0, 0, 0, .7),
+                0 0 70px rgba(214, 173, 69, .12);
+            transform: rotateY(-8deg) rotateX(3deg);
+            transition: .5s;
+        }
 
-            transform:
-                perspective(1000px) rotateY(-7deg) rotateX(2deg);
+        .book:hover {
+            transform: rotateY(0deg) rotateX(0deg) translateY(-7px);
+        }
+
+        .book::after {
+            content: "";
+            position: absolute;
+            left: 0;
+            top: 0;
+            width: 7px;
+            height: 100%;
+            background: linear-gradient(#8d6720, #f0ce6a, #8d6720);
         }
 
         .book-top {
             text-align: center;
-            color: var(--gold);
-            font-size: 8px;
-            letter-spacing: 3.5px;
-            font-weight: 700;
-            margin-bottom: 62px;
+            color: var(--gold-light);
+            font-size: 10px;
+            font-weight: 800;
+            letter-spacing: 3px;
+            text-transform: uppercase;
         }
 
-        .book-title {
+        .book h2 {
             font-family: "Playfair Display", serif;
-            font-size: 36px;
-            line-height: 1.02;
+            font-size: 39px;
+            line-height: 1;
             text-align: center;
-        }
-
-        .book-title span {
-            color: var(--gold);
+            margin-top: 38px;
         }
 
         .book-line {
-            width: 55px;
-            height: 1px;
+            width: 65px;
+            height: 2px;
             background: var(--gold);
             margin: 25px auto;
         }
 
-        .book-text {
+        .book p {
             text-align: center;
-            color: #858580;
-            font-size: 10px;
-            line-height: 1.75;
+            color: #aaa;
+            font-size: 13px;
         }
 
         .book-bottom {
             position: absolute;
             bottom: 30px;
             left: 0;
-            right: 0;
+            width: 100%;
             text-align: center;
-            color: var(--gold);
-            font-size: 8px;
-            letter-spacing: 3px;
-        }
-
-
-        /* =========================
-   PROOF
-========================= */
-
-        .proof {
-            margin-top: 5em;
-            border-top: 1px solid var(--line);
-            border-bottom: 1px solid var(--line);
-            background: #090909;
-        }
-
-        .proof-inner {
-            min-height: 64px;
-            display: flex;
-            justify-content: center;
-            align-items: center;
-            gap: 11px;
-            color: #777772;
+            color: var(--gold-light);
             font-size: 11px;
-        }
-
-        .proof-dot {
-            width: 7px;
-            height: 7px;
-            background: #7fc778;
-            border-radius: 50%;
-            box-shadow: 0 0 10px rgba(127, 199, 120, .7);
-        }
-
-        .proof strong {
-            color: var(--gold);
-        }
-
-
-        /* =========================
-   SECTION SYSTEM
-========================= */
-
-        .section {
-            padding: 88px 0;
-        }
-
-        .section.compact {
-            padding: 72px 0;
-        }
-
-        .section.large {
-            padding: 108px 0;
-        }
-
-        .dark {
-            background: #0a0a0a;
-            border-top: 1px solid rgba(255, 255, 255, .035);
-            border-bottom: 1px solid rgba(255, 255, 255, .035);
-        }
-
-        .section-header {
-            max-width: 680px;
-            margin: 0 auto 48px;
-        }
-
-        .center {
-            text-align: center;
-        }
-
-        .label {
-            color: var(--gold);
-            font-size: 9px;
-            letter-spacing: 3px;
-            font-weight: 800;
-            margin-bottom: 13px;
-        }
-
-        .section-header h2 {
-            font-family: "Playfair Display", serif;
-            font-size: clamp(38px, 5vw, 54px);
-            line-height: 1.04;
-            letter-spacing: -1.7px;
-            margin-bottom: 15px;
-        }
-
-        .section-header p {
-            color: #858580;
-            font-size: 13px;
-            line-height: 1.75;
-        }
-
-
-        /* =========================
-   DETAILED FRAMEWORK
-========================= */
-
-        .framework-grid {
-            display: grid;
-            grid-template-columns: repeat(2, 1fr);
-            gap: 14px;
-        }
-
-        .framework-card {
-            padding: 28px;
-            border: 1px solid var(--line);
-            border-radius: 10px;
-            background: var(--card2);
-            min-height: 205px;
-            position: relative;
-        }
-
-        .framework-number {
-            color: var(--gold);
-            font-family: "Playfair Display", serif;
-            font-size: 18px;
-            margin-bottom: 22px;
-        }
-
-        .framework-card h3 {
-            font-size: 15px;
-            margin-bottom: 10px;
-        }
-
-        .framework-card p {
-            color: #7e7e79;
-            font-size: 12px;
-            line-height: 1.75;
-            max-width: 440px;
-        }
-
-        .mini-list {
-            display: flex;
-            flex-wrap: wrap;
-            gap: 7px;
-            margin-top: 17px;
-        }
-
-        .mini-list span {
-            border: 1px solid rgba(255, 255, 255, .07);
-            background: #111;
-            padding: 6px 9px;
-            border-radius: 5px;
-            color: #888883;
-            font-size: 9px;
-        }
-
-
-        /* =========================
-   WHAT YOU LEARN
-========================= */
-
-        .learn-layout {
-            display: grid;
-            grid-template-columns: .78fr 1.22fr;
-            gap: 65px;
-            align-items: start;
-        }
-
-        .learn-copy {
-            position: sticky;
-            top: 110px;
-        }
-
-        .learn-copy h2 {
-            font-family: "Playfair Display", serif;
-            font-size: 47px;
-            line-height: 1.05;
-            letter-spacing: -1.5px;
-            margin-bottom: 17px;
-        }
-
-        .learn-copy p {
-            color: #858580;
-            font-size: 13px;
-            line-height: 1.8;
-            margin-bottom: 24px;
-        }
-
-        .learn-list {
-            display: flex;
-            flex-direction: column;
-            gap: 9px;
-        }
-
-        .learn-item {
-            padding: 18px 19px;
-            border: 1px solid var(--line);
-            border-radius: 8px;
-            background: #0c0c0c;
-        }
-
-        .learn-item-top {
-            display: flex;
-            justify-content: space-between;
-            align-items: center;
-            margin-bottom: 7px;
-        }
-
-        .learn-item strong {
-            font-size: 12px;
-        }
-
-        .learn-item-number {
-            color: var(--gold);
-            font-size: 9px;
-            font-weight: 800;
-        }
-
-        .learn-item p {
-            color: #686863;
-            font-size: 10px;
-            line-height: 1.65;
-        }
-
-
-        /* =========================
-   PROCESS
-========================= */
-
-        .process {
-            display: grid;
-            grid-template-columns: repeat(4, 1fr);
-            border: 1px solid var(--line);
-            border-radius: 12px;
-            overflow: hidden;
-        }
-
-        .process-step {
-            padding: 28px 23px;
-            background: #0d0d0d;
-            border-right: 1px solid var(--line);
-        }
-
-        .process-step:last-child {
-            border-right: none;
-        }
-
-        .process-number {
-            color: var(--gold);
-            font-size: 9px;
-            font-weight: 800;
-            letter-spacing: 1px;
-            margin-bottom: 25px;
-        }
-
-        .process-step h3 {
-            font-size: 14px;
-            margin-bottom: 9px;
-        }
-
-        .process-step p {
-            color: #6e6e69;
-            font-size: 10px;
-            line-height: 1.7;
-        }
-
-
-        /* =========================
-   CHECKLIST
-========================= */
-
-        .checklist-section {
-            background:
-                radial-gradient(circle at 50% 0,
-                    rgba(232, 196, 91, .055),
-                    transparent 50%),
-                #090909;
-        }
-
-        .checklist {
-            display: grid;
-            grid-template-columns: repeat(3, 1fr);
-            gap: 11px;
-        }
-
-        .check-card {
-            padding: 22px;
-            border: 1px solid var(--line);
-            border-radius: 9px;
-            background: #0c0c0c;
-        }
-
-        .check-card h3 {
-            font-size: 12px;
-            margin-bottom: 13px;
-        }
-
-        .check-card ul {
-            list-style: none;
-        }
-
-        .check-card li {
-            color: #74746f;
-            font-size: 10px;
-            padding: 7px 0;
-            border-bottom: 1px solid rgba(255, 255, 255, .045);
-        }
-
-        .check-card li:last-child {
-            border-bottom: none;
-        }
-
-        .check-card li:before {
-            content: "✓";
-            color: var(--gold);
-            margin-right: 8px;
-        }
-
-
-        /* =========================
-   REVIEWS
-========================= */
-
-        .reviews {
-            display: grid;
-            grid-template-columns: repeat(3, 1fr);
-            gap: 14px;
-        }
-
-        .review {
-            padding: 27px;
-            border: 1px solid var(--line);
-            border-radius: 10px;
-            background: #0d0d0d;
-        }
-
-        .review-stars {
-            color: var(--gold);
             letter-spacing: 2px;
-            font-size: 10px;
-            margin-bottom: 17px;
+            font-weight: 700;
         }
 
-        .review p {
-            color: #aaa;
+        /* SECTION */
+
+        section {
+            padding: 100px 0;
+        }
+
+        .section-label {
+            color: var(--gold-light);
             font-size: 12px;
-            line-height: 1.75;
-            margin-bottom: 21px;
+            font-weight: 800;
+            letter-spacing: 2px;
+            text-transform: uppercase;
+            margin-bottom: 13px;
         }
 
-        .person {
-            display: flex;
-            gap: 10px;
-            align-items: center;
+        .section-title {
+            font-family: "Playfair Display", serif;
+            font-size: clamp(35px, 5vw, 52px);
+            line-height: 1.1;
+            margin-bottom: 16px;
         }
 
-        .avatar {
-            width: 31px;
-            height: 31px;
-            border-radius: 50%;
-            background: #1b1b1b;
+        .section-subtitle {
+            color: var(--muted);
+            max-width: 650px;
+        }
+
+        /* STATS */
+
+        .stats {
+            border-top: 1px solid #222;
+            border-bottom: 1px solid #222;
+            padding: 35px 0;
+        }
+
+        .stats-grid {
             display: grid;
-            place-items: center;
-            color: var(--gold);
-            font-size: 9px;
-            font-weight: 800;
-        }
-
-        .person strong {
-            display: block;
-            font-size: 10px;
-        }
-
-        .person span {
-            color: #555550;
-            font-size: 9px;
-        }
-
-
-        /* =========================
-   OFFER
-========================= */
-
-        .offer-section {
-            padding: 80px 0 95px;
-        }
-
-        .offer {
-            max-width: 620px;
-            margin: auto;
+            grid-template-columns: repeat(3, 1fr);
             text-align: center;
-            padding: 48px;
-
-            border: 1px solid var(--goldline);
-            border-radius: 14px;
-
-            background:
-                radial-gradient(circle at 50% 0,
-                    rgba(232, 196, 91, .08),
-                    transparent 50%),
-                #0c0c0c;
         }
 
-        .offer h2 {
-            font-family: "Playfair Display", serif;
-            font-size: 39px;
-            line-height: 1.05;
-            margin-bottom: 8px;
+        .stat {
+            padding: 0 20px;
+            border-right: 1px solid #252525;
         }
 
-        .offer-sub {
-            color: #777772;
-            font-size: 11px;
-            margin-bottom: 22px;
+        .stat:last-child {
+            border: 0;
         }
 
-        .price {
-            color: var(--gold);
-            font-family: "Playfair Display", serif;
-            font-size: 58px;
-            line-height: 1;
-        }
-
-        .price-note {
-            color: #5d5d58;
-            font-size: 9px;
-            margin: 7px 0 23px;
-        }
-
-        .offer-button {
+        .stat strong {
             display: block;
-            width: 100%;
-            padding: 17px;
-            border-radius: 7px;
-            background: linear-gradient(135deg, #f5d879, #d8ad3d);
-            color: #080808;
-            font-size: 11px;
-            font-weight: 800;
+            color: var(--gold-light);
+            font-family: "Playfair Display", serif;
+            font-size: 32px;
         }
 
-        .secure {
-            color: #555550;
-            font-size: 9px;
-            margin-top: 15px;
+        .stat span {
+            color: #888;
+            font-size: 13px;
         }
 
+        /* FEATURES */
 
-        /* =========================
-   FAQ
-========================= */
+        .features {
+            background: #0b0b0b;
+        }
 
-        .faq {
-            max-width: 730px;
+        .features-header {
+            text-align: center;
+            margin-bottom: 55px;
+        }
+
+        .features-header .section-subtitle {
             margin: auto;
         }
 
-        .faq-item {
-            border-bottom: 1px solid var(--line);
+        .feature-grid {
+            display: grid;
+            grid-template-columns: repeat(3, 1fr);
+            gap: 18px;
         }
 
-        .question {
-            width: 100%;
-            padding: 21px 2px;
-            background: none;
-            border: none;
-            color: white;
-            display: flex;
-            justify-content: space-between;
-            cursor: pointer;
-            font-size: 12px;
-            text-align: left;
-        }
-
-        .plus {
-            color: var(--gold);
-            font-size: 17px;
+        .feature {
+            padding: 30px;
+            border: 1px solid #242424;
+            background: linear-gradient(145deg, #131313, #0d0d0d);
+            border-radius: 10px;
             transition: .25s;
         }
 
-        .answer {
-            max-height: 0;
-            overflow: hidden;
-            transition: .3s;
+        .feature:hover {
+            border-color: var(--border);
+            transform: translateY(-4px);
         }
 
-        .answer p {
-            color: #777772;
-            font-size: 11px;
-            line-height: 1.75;
-            padding: 0 25px 20px 2px;
+        .feature-icon {
+            width: 45px;
+            height: 45px;
+            display: grid;
+            place-items: center;
+            border: 1px solid var(--border);
+            border-radius: 8px;
+            color: var(--gold-light);
+            font-size: 19px;
+            margin-bottom: 22px;
         }
 
-        .faq-item.active .answer {
-            max-height: 200px;
-        }
-
-        .faq-item.active .plus {
-            transform: rotate(45deg);
-        }
-
-
-        /* =========================
-   FINAL CTA
-========================= */
-
-        .final {
-            padding: 85px 0 105px;
-            text-align: center;
-        }
-
-        .final-box {
-            padding: 70px 30px;
-            border: 1px solid var(--goldline);
-            border-radius: 15px;
-
-            background:
-                radial-gradient(circle at 50% 0,
-                    rgba(232, 196, 91, .09),
-                    transparent 55%),
-                #0b0b0b;
-        }
-
-        .final h2 {
-            max-width: 700px;
-            margin: 0 auto 16px;
+        .feature h3 {
             font-family: "Playfair Display", serif;
-            font-size: clamp(39px, 5vw, 57px);
-            line-height: 1.04;
+            font-size: 21px;
+            margin-bottom: 10px;
         }
 
-        .final p {
-            max-width: 550px;
-            margin: 0 auto 25px;
-            color: #777772;
+        .feature p {
+            color: #888;
+            font-size: 14px;
+        }
+
+        /* CONTENT */
+
+        .content-grid {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 70px;
+            align-items: center;
+        }
+
+        .check-list {
+            margin-top: 28px;
+            display: grid;
+            gap: 0px;
+        }
+
+        .check {
+            display: flex;
+            gap: 12px;
+            align-items: flex-start;
+            color: #ccc;
+        }
+
+        .check span {
+            color: var(--gold-light);
+            font-weight: 900;
+        }
+
+        .preview {
+            border: 1px solid #292929;
+            background: #111;
+            padding: 28px;
+            border-radius: 10px;
+            box-shadow: 0 25px 70px rgba(0, 0, 0, .35);
+        }
+
+        .preview-header {
+            display: flex;
+            justify-content: space-between;
+            border-bottom: 1px solid #292929;
+            padding-bottom: 18px;
+            margin-bottom: 22px;
+        }
+
+        .preview-header strong {
+            font-family: "Playfair Display", serif;
+        }
+
+        .preview-header span {
+            color: var(--gold-light);
+            font-size: 11px;
+        }
+
+        .chapter {
+            padding: 16px 0;
+            border-bottom: 1px solid #222;
+            display: flex;
+            gap: 15px;
+        }
+
+        .chapter-number {
+            color: var(--gold);
+            font-weight: 800;
+        }
+
+        .chapter-text strong {
+            display: block;
+            font-size: 14px;
+        }
+
+        .chapter-text span {
+            color: #777;
             font-size: 12px;
-            line-height: 1.75;
         }
 
-        .disclaimer {
+        /* TESTIMONIALS */
+
+        .testimonials {
+            background: #0b0b0b;
+        }
+
+        .testimonial-grid {
+            display: grid;
+            grid-template-columns: repeat(3, 1fr);
+            gap: 18px;
+            margin-top: 45px;
+        }
+
+        .testimonial {
+            padding: 28px;
+            background: #111;
+            border: 1px solid #252525;
+            border-radius: 10px;
+        }
+
+        .stars {
+            color: var(--gold-light);
+            letter-spacing: 2px;
+            margin-bottom: 18px;
+        }
+
+        .testimonial p {
+            color: #bbb;
+            font-size: 14px;
+            margin-bottom: 20px;
+        }
+
+        .person {
+            color: #777;
+            font-size: 12px;
+        }
+
+        /* PRICING */
+
+        /* PRICING */
+
+        .pricing {
+            text-align: center;
+            background: #080808;
+        }
+
+
+        .check-list {
+            list-style: none;
+            margin-bottom: 32px;
+        }
+
+        .check-list li {
+            margin: 6px 0;
+            color: #ccc;
+            font-size: 14px;
+        }
+
+        .check-list li::before {
+            content: "✓";
+            color: var(--gold-light);
+            margin-right: 12px;
+        }
+
+        .price-card {
+            max-width: 520px;
+            margin: auto;
+            padding: 48px;
+            border: 1px solid var(--border);
+            border-radius: 14px;
+            background:
+                linear-gradient(145deg, #121212, #080808);
+            box-shadow: 0 30px 100px rgba(0, 0, 0, .5);
+        }
+
+        .price-label {
+            color: #888;
+            text-transform: uppercase;
+            letter-spacing: 2px;
+            font-size: 11px;
+        }
+
+        .price {
+            font-family: "Playfair Display", serif;
+            font-size: 70px;
+            margin: 12px 0;
+        }
+
+        .price span {
+            font-size: 20px;
+            color: #777;
+        }
+
+        .price-card p {
+            color: #888;
+            margin-bottom: 30px;
+        }
+
+        .price-btn {
+            width: 100%;
+            border: none;
+            cursor: pointer;
+            font-size: 15px;
+        }
+
+        /* FAQ */
+
+        .faq {
+            max-width: 760px;
+            margin: 45px auto 0;
+        }
+
+        details {
+            border-bottom: 1px solid #292929;
+            padding: 20px 0;
+        }
+
+        summary {
+            cursor: pointer;
+            list-style: none;
+            font-weight: 700;
+        }
+
+        summary::-webkit-details-marker {
+            display: none;
+        }
+
+        details p {
+            color: #888;
+            margin-top: 12px;
+            font-size: 14px;
+        }
+
+        /* FINAL CTA */
+
+        .final-cta {
+            padding: 120px 0;
+            text-align: center;
+            position: relative;
+            overflow: hidden;
+        }
+
+        .final-cta::before {
+            content: "";
+            position: absolute;
+            width: 500px;
+            height: 500px;
+            background: rgba(214, 173, 69, .08);
+            filter: blur(120px);
+            border-radius: 50%;
+            left: 50%;
+            top: 30%;
+            transform: translate(-50%, -50%);
+        }
+
+        .final-cta>.container {
+            position: relative;
+        }
+
+        .final-cta h2 {
+            font-family: "Playfair Display", serif;
+            font-size: clamp(40px, 6vw, 65px);
+            line-height: 1.05;
             max-width: 850px;
-            margin: 30px auto 0;
-            color: #41413e;
-            font-size: 9px;
-            line-height: 1.7;
+            margin: auto auto 20px;
         }
 
+        .final-cta p {
+            color: #888;
+            max-width: 570px;
+            margin: 0 auto 30px;
+        }
 
-        /* =========================
-   FOOTER
-========================= */
+        /* FOOTER */
 
         footer {
-            border-top: 1px solid var(--line);
-            padding: 27px 0;
-            color: #4b4b47;
-            font-size: 9px;
+            border-top: 1px solid #222;
+            padding: 30px 0;
+            color: #666;
+            font-size: 12px;
         }
 
         .footer-inner {
             display: flex;
             justify-content: space-between;
+            gap: 20px;
+        }
+
+        .footer-links {
+            display: flex;
+            gap: 20px;
+        }
+
+        .footer-links a:hover {
+            color: var(--gold-light);
         }
 
 
-        /* =========================
-   MOBILE
-========================= */
-
-        .mobile-cta {
-            display: none;
+        /* MEMBER COUNT */
+        .member-counter {
+            position: absolute;
+            top: 92px;
+            left: 50%;
+            transform: translateX(-50%);
+            z-index: 10;
+            display: flex;
+            align-items: center;
+            gap: 12px;
+            padding: 10px 18px;
+            border: 1px solid var(--border);
+            border-radius: 100px;
+            background: rgba(18, 18, 18, .78);
+            backdrop-filter: blur(14px);
+            box-shadow: 0 10px 35px rgba(0, 0, 0, .25);
+            white-space: nowrap;
         }
 
-        @media(max-width:850px) {
+        .member-pulse {
+            width: 9px;
+            height: 9px;
+            border-radius: 50%;
+            background: var(--gold-light);
+            box-shadow: 0 0 0 0 rgba(244, 215, 123, .55);
+            animation: memberPulse 1.8s infinite;
+        }
+
+        .member-text {
+            color: #aaa;
+            font-size: 13px;
+        }
+
+        .member-count {
+            color: var(--gold-light);
+            font-weight: 800;
+            font-size: 16px;
+        }
+
+        @keyframes memberPulse {
+            70% {
+                box-shadow: 0 0 0 9px rgba(244, 215, 123, 0);
+            }
+
+            100% {
+                box-shadow: 0 0 0 0 rgba(244, 215, 123, 0);
+            }
+        }
+
+        /* MOBILE */
+
+        @media(max-width: 800px) {
 
             .nav-links {
                 display: none;
             }
 
-            .hero {
-                padding: 65px 0 70px;
-            }
-
-            .hero-grid {
+            .hero-grid,
+            .content-grid {
                 grid-template-columns: 1fr;
-                gap: 60px;
-            }
-
-            .hero-copy {
-                text-align: center;
-                margin: auto;
-            }
-
-            .hero-description {
-                margin-left: auto;
-                margin-right: auto;
-            }
-
-            .features {
-                justify-content: center;
-                text-align: center;
-            }
-
-            .actions {
-                justify-content: center;
-            }
-
-            .trust {
-                justify-content: center;
-            }
-
-            .framework-grid {
-                grid-template-columns: 1fr;
-            }
-
-            .learn-layout {
-                grid-template-columns: 1fr;
-                gap: 40px;
-            }
-
-            .learn-copy {
-                position: static;
-                text-align: center;
-            }
-
-            .process {
-                grid-template-columns: 1fr 1fr;
-            }
-
-            .process-step:nth-child(2) {
-                border-right: none;
-            }
-
-            .process-step:nth-child(-n+2) {
-                border-bottom: 1px solid var(--line);
-            }
-
-            .checklist {
-                grid-template-columns: 1fr;
-            }
-
-            .reviews {
-                grid-template-columns: 1fr;
-            }
-        }
-
-
-        @media(max-width:560px) {
-
-            .container {
-                width: calc(100% - 30px);
-            }
-
-            .nav {
-                height: 64px;
-            }
-
-            .logo {
-                font-size: 15px;
-            }
-
-            .nav-button {
-                padding: 10px 13px;
-                font-size: 9px;
+                gap: 55px;
             }
 
             .hero {
-                padding: 55px 0 65px;
-            }
-
-            h1 {
-                font-size: 48px;
-                letter-spacing: -2px;
+                padding-top: 120px;
             }
 
             .hero-description {
-                font-size: 13px;
+                font-size: 16px;
             }
 
-            .features {
-                grid-template-columns: 1fr;
-                width: max-content;
-                max-width: 100%;
-                margin-left: auto;
-                margin-right: auto;
-            }
-
-            .actions {
-                flex-direction: column;
-            }
-
-            .primary,
-            .secondary {
-                width: 100%;
+            .product-wrap {
+                order: -1;
             }
 
             .book {
-                width: 270px;
-                height: 405px;
+                width: 285px;
+                height: 390px;
             }
 
-            .book-title {
-                font-size: 31px;
-            }
-
-            .section {
-                padding: 70px 0;
-            }
-
-            .section.large {
-                padding: 82px 0;
-            }
-
-            .section-header {
-                margin-bottom: 36px;
-            }
-
-            .section-header h2 {
-                font-size: 38px;
-            }
-
-            .learn-copy h2 {
-                font-size: 39px;
-            }
-
-            .process {
-                grid-template-columns: 1fr;
-            }
-
-            .process-step {
-                border-right: none !important;
-                border-bottom: 1px solid var(--line);
-            }
-
-            .process-step:last-child {
-                border-bottom: none;
-            }
-
-            .offer {
-                padding: 35px 20px;
-            }
-
-            .offer h2 {
+            .book h2 {
                 font-size: 32px;
             }
 
-            .final-box {
-                padding: 55px 20px;
+            .feature-grid,
+            .testimonial-grid {
+                grid-template-columns: 1fr;
             }
 
-            .mobile-cta {
-                display: block;
-                position: fixed;
-                left: 0;
-                right: 0;
-                bottom: 0;
-                z-index: 999;
-                padding: 9px 12px;
-                background: rgba(7, 7, 7, .94);
-                backdrop-filter: blur(15px);
-                border-top: 1px solid var(--goldline);
+            .stats-grid {
+                grid-template-columns: 1fr;
+                gap: 25px;
             }
 
-            .mobile-cta a {
-                display: block;
-                text-align: center;
-                padding: 13px;
-                border-radius: 6px;
-                background: linear-gradient(135deg, #f5d879, #d7ab3b);
-                color: #080808;
-                font-size: 10px;
-                font-weight: 800;
+            .stat {
+                border-right: 0;
+                border-bottom: 1px solid #252525;
+                padding-bottom: 22px;
             }
 
-            footer {
-                padding-bottom: 70px;
+            .stat:last-child {
+                border-bottom: 0;
+                padding-bottom: 0;
+            }
+
+            .price-card {
+                padding: 30px 22px;
             }
 
             .footer-inner {
                 flex-direction: column;
-                gap: 8px;
             }
-        }
-
-        .book {
-            width: 310px;
-            height: 450px;
-            position: relative;
-            z-index: 2;
-            padding: 40px 31px;
-
-            border-left: 6px solid #b88c25;
-            border-top: 1px solid #80631d;
-            border-right: 1px solid #665019;
-            border-bottom: 1px solid #665019;
-            border-radius: 3px 13px 13px 3px;
-
-            background: linear-gradient(145deg, #171717, #090909);
-
-            box-shadow:
-                20px 25px 0 rgba(0, 0, 0, .3),
-                0 35px 75px rgba(0, 0, 0, .7);
-
-            transform:
-                perspective(1000px) rotateY(-7deg) rotateX(2deg);
-
-            transition:
-                transform .5s cubic-bezier(.2, .8, .2, 1),
-                box-shadow .5s ease,
-                filter .5s ease;
-        }
-
-        /* BOOK HOVER */
-        .book:hover {
-            transform:
-                perspective(1000px) rotateY(-2deg) rotateX(1deg) translateY(-14px) scale(1.025);
-
-            box-shadow:
-                25px 35px 0 rgba(0, 0, 0, .25),
-                0 45px 90px rgba(0, 0, 0, .85),
-                0 0 45px rgba(232, 196, 91, .12);
-
-            filter: brightness(1.08);
-        }
-
-        .book-glow {
-            position: absolute;
-            width: 500px;
-            height: 500px;
-            border-radius: 50%;
-
-            background: radial-gradient(circle,
-                    rgba(232, 196, 91, 0.32) 0%,
-                    rgba(232, 196, 91, 0.18) 25%,
-                    rgba(232, 196, 91, 0.08) 45%,
-                    transparent 70%);
-
-            opacity: 0.9;
-            filter: blur(18px);
-
-            animation: bookGlow 3.5s ease-in-out infinite;
-
-            pointer-events: none;
-            z-index: 1;
-        }
-
-        @keyframes bookGlow {
-
-            0%,
-            100% {
-                transform: scale(0.9);
-                opacity: 0.65;
-            }
-
-            50% {
-                transform: scale(1.12);
-                opacity: 1;
-            }
-        }
-
-        .book-area:hover .book-glow {
-            transform: scale(1.2);
-            opacity: 1;
-            filter: blur(22px);
-        }
-
-        .member-count {
-            display: inline-flex;
-            align-items: center;
-            justify-content: center;
-            gap: 10px;
-            margin-top: 3em;
-
-
-            padding: 12px 18px;
-            border: 1px solid rgba(212, 175, 55, 0.32);
-            border-radius: 999px;
-
-            background: rgba(12, 12, 12, 0.85);
-            box-shadow:
-                0 8px 30px rgba(0, 0, 0, 0.25),
-                inset 0 0 20px rgba(255, 255, 255, 0.015);
-
-            font-family: inherit;
-            white-space: nowrap;
-        }
-
-        /* Yellow pulsing dot */
-        .member-dot {
-            width: 8px;
-            height: 8px;
-            flex-shrink: 0;
-
-            background: #f4d35e;
-            border-radius: 50%;
-
-            box-shadow: 0 0 8px rgba(244, 211, 94, 0.55);
-
-            animation: memberPulse 2s ease-in-out infinite;
-        }
-
-        @keyframes memberPulse {
-
-            0%,
-            100% {
-                transform: scale(1);
-                opacity: 1;
-                box-shadow: 0 0 7px rgba(244, 211, 94, 0.45);
-            }
-
-            50% {
-                transform: scale(1.18);
-                opacity: 0.75;
-                box-shadow: 0 0 12px rgba(244, 211, 94, 0.7);
-            }
-        }
-
-        .member-label {
-            color: #a6a6a6;
-            font-size: 14px;
-            font-weight: 400;
-            letter-spacing: 0.1px;
-        }
-
-        .member-number {
-            color: #f4d35e;
-            font-size: 15px;
-            font-weight: 700;
-            min-width: 38px;
-            text-align: center;
-        }
-
-        .member-text {
-            color: #f5f5f5;
-            font-size: 15px;
-            font-weight: 400;
-            margin-left: -4px;
-        }
-
-        /* Mobile */
-        @media (max-width: 600px) {
-            .member-count {
-                gap: 8px;
-                padding: 10px 15px;
-            }
-
-            .member-label,
-            .member-number,
-            .member-text {
-                font-size: 13px;
-            }
-
-            .member-dot {
-                width: 7px;
-                height: 7px;
-            }
-        }
-
-        .test {
-            display: flex;
-            justify-content: center;
-            text-align: center;
         }
     </style>
 </head>
 
-
 <body>
 
+    <!-- NAVIGATION -->
 
-    <!-- =========================
-     NAV
-========================= -->
-
-    <nav class="nav">
-
+    <nav>
         <div class="container nav-inner">
 
             <a href="#" class="logo">
@@ -1338,134 +842,81 @@
             </a>
 
             <div class="nav-links">
-                <a href="#framework">Framework</a>
-                <a href="#inside">What's Inside</a>
+                <a href="#blueprint">Blueprint</a>
+                <a href="#benefits">Benefits</a>
                 <a href="#reviews">Reviews</a>
                 <a href="#faq">FAQ</a>
+                <a href="#buy" class="nav-button">GET THE BLUEPRINT</a>
             </div>
 
-            <a href="https://payhip.com/buy?s=1&qty%5BvXTBi%5D=1&cart_links%5B%5D=vXTBi" class="nav-button">
-                GET THE BLUEPRINT
-            </a>
-
         </div>
-
     </nav>
 
 
-    <!-- =========================
-     HERO
-========================= -->
-    <!-- Member Count -->
-    <div class="test">
-        <div class="member-count">
-            <span class="member-dot"></span>
+    <!-- HERO -->
 
-            <span class="member-label">Growing community:</span>
-
-            <span class="member-number" id="memberCount">300+</span>
-
-            <span class="member-text">Members</span>
+    <section class="hero">
+        <div class="member-counter" aria-label="Growing member count">
+            <span class="member-pulse"></span>
+            <span class="member-text">Growing community:</span>
+            <span class="member-count" id="memberCount">0+</span>Members
         </div>
-    </div>
-
-    <header class="hero">
 
         <div class="container hero-grid">
 
+            <div>
 
-            <div class="hero-copy">
-
-                <div class="eyebrow">
-                    <span class="dot"></span>
-                    THE WEALTH BLUEPRINT
+                <div class="badge">
+                    The Wealth Blueprint
                 </div>
 
                 <h1>
-                    Build Wealth.<br>
-                    <span style="white-space:nowrap">Find <span class="gold">High-Growth</span><br></span>
-                    Investments.
+                    Find The Next
+                    <span class="gold-text"><span style="font-size: 1.1em;">100</span><span
+                            style="font-size: 0.85em;">x</span> Stock</span>
                 </h1>
-
                 <p class="hero-description">
-                    Learn a structured framework for researching stocks,
-                    evaluating businesses, identifying high-growth
-                    opportunities, and developing a long-term wealth strategy.
-                </p>
+If you’re serious about investing smarter and building lasting, generational wealth, the Wealth Blueprint gives you the knowledge and resources to take your financial journey to the next level. Get access to the 100X Stocks Formula and the Millionaire Wealth Blueprint—designed to help you identify high-growth opportunities, build stronger investing knowledge, and develop the strategies needed to pursue long-term financial freedom.  
+                <div class="cta-row">
 
-
-                <div class="features">
-
-                    <div class="feature">
-                        <span>✓</span>
-                        100X Stock Formula
-                    </div>
-
-                    <div class="feature">
-                        <span>✓</span>
-                        Millionaire Wealth Blueprint
-                    </div>
-
-                    <div class="feature">
-                        <span>✓</span>
-                        Top Investor Frameworks
-                    </div>
-
-                    <div class="feature">
-                        <span>✓</span>
-                        Stock Research Modules
-                    </div>
-
-                </div>
-
-
-                <div class="actions">
-
-                    <a href="https://payhip.com/buy?s=1&qty%5BvXTBi%5D=1&cart_links%5B%5D=vXTBi" class="primary">
-                        GET INSTANT ACCESS →
+                    <a href="https://payhip.com/buy?s=1&qty%5BvXTBi%5D=1&cart_links%5B%5D=vXTBi" class="primary-btn">
+                        GET THE BLUEPRINT →
                     </a>
 
-                    <a href="#inside" class="secondary">
+                    <a href="#blueprint" class="secondary-btn">
                         SEE WHAT'S INSIDE
                     </a>
 
                 </div>
 
-
-                <div class="trust">
-
-                    <span class="stars">★★★★★</span>
-                    <span>327+ members</span>
-                    <span>•</span>
-                    <span>Instant digital access</span>
-
+                <div class="hero-note">
+                    Instant digital access • Learn at your own pace
                 </div>
 
             </div>
 
 
-            <div class="book-area">
-
-                <div class="book-glow"></div>
+            <div class="product-wrap">
 
                 <div class="book">
 
                     <div class="book-top">
-                        PREMIUM WEALTH GUIDE
+                        Premium Wealth Guide
                     </div>
 
-                    <div class="book-title">
-                        MILLIONAIRE<br>
+                    <h2>
+                        MILLIONAIRE
+                        <br>
                         WEALTH<br>
-                        <span>BLUEPRINT</span>
-                    </div>
+                        <span class="gold-text">BLUEPRINT</span>
+                    </h2>
 
                     <div class="book-line"></div>
 
-                    <p class="book-text">
-                        The framework for researching investments,
-                        understanding businesses, and building a
-                        long-term wealth strategy.
+                    <p>
+                        The framework for building wealth,
+                        investing intelligently & creating
+                        financial freedom.
                     </p>
 
                     <div class="book-bottom">
@@ -1478,149 +929,275 @@
 
         </div>
 
-    </header>
+    </section>
 
 
-    <!-- =========================
-     PROOF BAR
-========================= -->
+    <!-- STATS -->
+
+    <div class="stats">
+
+        <div class="container stats-grid">
+
+            <div class="stat">
+                <strong>01</strong>
+                <span>Complete Wealth Framework</span>
+            </div>
+
+            <div class="stat">
+                <strong>∞</strong>
+                <span>Lifetime Digital Access</span>
+            </div>
+
+            <div class="stat">
+                <strong>100%</strong>
+                <span>Learn At Your Own Pace</span>
+            </div>
+
+        </div>
+
+    </div>
 
 
+    <!-- BENEFITS -->
 
-
-    <!-- =========================
-     FRAMEWORK
-========================= -->
-
-    <section class="section large dark" id="framework">
+    <section class="features" id="benefits">
 
         <div class="container">
 
-            <div class="section-header center">
+            <div class="features-header">
 
-                <div class="label">
-                    THE CORE FRAMEWORK
+                <div class="section-label">
+                    What's Inside
                 </div>
 
-                <h2>
-                    More than a stock-picking guide.
+                <h2 class="section-title">
+                    Your Roadmap To Wealth
                 </h2>
 
-                <p>
-                    Learn the fundamental concepts behind researching
-                    companies, evaluating opportunities, managing risk,
-                    and thinking about wealth over the long term.
+                <p class="section-subtitle">
+                    Everything is organized into a simple framework designed to help you understand the fundamentals of
+                    building and protecting wealth.
                 </p>
 
             </div>
 
 
-            <div class="framework-grid">
+            <div class="feature-grid">
 
+                <div class="feature">
 
-                <div class="framework-card">
+                    <div class="feature-icon">$</div>
 
-                    <div class="framework-number">
-                        01
-                    </div>
-
-                    <h3>
-                        The 100X Stock Formula
-                    </h3>
+                    <h3>Find High-Growth Opportunities</h3>
 
                     <p>
-                        A structured framework for identifying companies
-                        that may deserve deeper research based on growth,
-                        business quality, market opportunity, and other
-                        important characteristics.
+                        Learn what to look for when searching for businesses with the potential to grow significantly
+                        over time.
                     </p>
 
-                    <div class="mini-list">
-                        <span>Growth</span>
-                        <span>Market Size</span>
-                        <span>Business Quality</span>
-                        <span>Competitive Advantage</span>
+                </div>
+
+                <div class="feature">
+
+                    <div class="feature-icon">◆</div>
+
+                    <h3>Money Mindset</h3>
+
+                    <p>
+                        Develop the habits, discipline, and thinking patterns that can help you make better financial
+                        decisions.
+                    </p>
+
+                </div>
+
+
+                <div class="feature">
+
+                    <div class="feature-icon">↗</div>
+
+                    <h3>Investing Fundamentals</h3>
+
+                    <p>
+                        Understand the foundations of investing and how different assets can fit into a long-term
+                        strategy.
+                    </p>
+
+                </div>
+
+
+
+
+                <div class="feature">
+
+                    <div class="feature-icon">◈</div>
+
+                    <h3>Wealth Strategy</h3>
+
+                    <p>
+                        Learn how saving, investing, compounding, and time can work together to build long-term wealth.
+                    </p>
+
+                </div>
+
+
+                <div class="feature">
+
+                    <div class="feature-icon">✓</div>
+
+                    <h3>Action Framework</h3>
+
+                    <p>
+                        Turn what you learn into an organized financial action plan instead of simply consuming
+                        information.
+                    </p>
+
+                </div>
+
+
+                <div class="feature">
+
+                    <div class="feature-icon">∞</div>
+
+                    <h3>Lifetime Access</h3>
+
+                    <p>
+                        Keep your digital blueprint and return to the material whenever you need to refresh your
+                        strategy.
+                    </p>
+
+                </div>
+
+            </div>
+
+        </div>
+
+    </section>
+
+
+    <!-- BLUEPRINT -->
+
+    <section id="blueprint">
+
+        <div class="container content-grid">
+
+            <div>
+
+                <div class="section-label">
+                    Inside The Blueprint
+                </div>
+
+                <h2 class="section-title">
+                    From Finding The Opportunity <br> To Building Wealth.
+                </h2>
+
+                <p class="section-subtitle">
+                    This framework is designed to help you understand the key principles of building wealth and turn
+                    them into practical actions you can follow throughout your financial journey.
+                </p>
+
+
+                <div class="check-list">
+
+                    <div class="check">
+                        <span>✓</span>
+                        <div>Understand the fundamentals of personal wealth</div>
+                    </div>
+                    <br>
+
+                    <div class="check">
+                        <span>✓</span>
+                        <div>Learn the principles behind long-term investing</div>
+                    </div>
+                    <br>
+                    <div class="check">
+                        <span>✓</span>
+                        <div>Understand the power of compound growth</div>
+                    </div>
+                    <br>
+                    <div class="check">
+                        <span>✓</span>
+                        <div>Create a structured wealth-building strategy</div>
+                    </div>
+                    <br>
+                    <div class="check">
+                        <span>✓</span>
+                        <div>Build better financial habits and discipline</div>
+                    </div>
+
+                </div>
+
+            </div>
+
+
+            <div class="preview">
+
+                <div class="preview-header">
+
+                    <strong>BLUEPRINT CONTENT</strong>
+
+                    <span>SELECTED MODULES</span>
+
+                </div>
+
+
+
+                <div class="chapter">
+
+                    <div class="chapter-number">01</div>
+
+                    <div class="chapter-text">
+                        <strong>The Mindset</strong>
+                        <span>How wealthy thinking changes your decisions</span>
+                    </div>
+
+                </div>
+                <div class="chapter">
+
+                    <div class="chapter-number">02</div>
+
+                    <div class="chapter-text">
+                        <strong>Finding The 100X Opportunity</strong>
+                        <span>The key signals that can reveal a stock's growth potential before the crowd</span>
                     </div>
 
                 </div>
 
 
-                <div class="framework-card">
 
-                    <div class="framework-number">
-                        02
-                    </div>
+                <div class="chapter">
 
-                    <h3>
-                        Business Analysis
-                    </h3>
+                    <div class="chapter-number">03</div>
 
-                    <p>
-                        Learn what to look for when researching a company,
-                        including how the business makes money, why customers
-                        buy, what drives growth, and what could create
-                        long-term value.
-                    </p>
-
-                    <div class="mini-list">
-                        <span>Revenue</span>
-                        <span>Margins</span>
-                        <span>Moats</span>
-                        <span>Management</span>
+                    <div class="chapter-text">
+                        <strong>Master Your Money</strong>
+                        <span>Build a strong financial foundation</span>
                     </div>
 
                 </div>
 
 
-                <div class="framework-card">
+                <div class="chapter">
 
-                    <div class="framework-number">
-                        03
-                    </div>
+                    <div class="chapter-number">04</div>
 
-                    <h3>
-                        Finding Asymmetric Opportunities
-                    </h3>
-
-                    <p>
-                        Explore how investors can think about upside versus
-                        downside, market expectations, catalysts, risks,
-                        and the difference between an interesting company
-                        and an interesting investment.
-                    </p>
-
-                    <div class="mini-list">
-                        <span>Upside</span>
-                        <span>Downside</span>
-                        <span>Catalysts</span>
-                        <span>Risks</span>
+                    <div class="chapter-text">
+                        <strong>The Investing Blueprint</strong>
+                        <span>Understand assets and long-term investing</span>
                     </div>
 
                 </div>
 
 
-                <div class="framework-card">
 
-                    <div class="framework-number">
-                        04
-                    </div>
 
-                    <h3>
-                        Long-Term Wealth Building
-                    </h3>
 
-                    <p>
-                        Understand the principles of compounding, capital
-                        allocation, patience, diversification, risk management,
-                        and building an investing process that can be followed
-                        over years rather than days.
-                    </p>
+                <div class="chapter">
 
-                    <div class="mini-list">
-                        <span>Compounding</span>
-                        <span>Risk</span>
-                        <span>Allocation</span>
-                        <span>Time Horizon</span>
+                    <div class="chapter-number">05</div>
+
+                    <div class="chapter-text">
+                        <strong>The Wealth Strategy</strong>
+                        <span>Turn investing knowledge into a long-term plan</span>
                     </div>
 
                 </div>
@@ -1632,585 +1209,72 @@
     </section>
 
 
-    <!-- =========================
-     WHAT'S INSIDE
-========================= -->
+    <!-- TESTIMONIALS -->
 
-    <section class="section large" id="inside">
-
-        <div class="container learn-layout">
-
-
-            <div class="learn-copy">
-
-                <div class="label">
-                    WHAT'S INSIDE
-                </div>
-
-                <h2>
-                    A complete investing education system.
-                </h2>
-
-                <p>
-                    Instead of giving you a single list of stocks,
-                    the Blueprint focuses on giving you frameworks,
-                    questions, checklists, and concepts you can
-                    repeatedly use when researching investments.
-                </p>
-
-                <a href="https://payhip.com/buy?s=1&qty%5BvXTBi%5D=1&cart_links%5B%5D=vXTBi" class="primary">
-                    GET THE BLUEPRINT →
-                </a>
-
-            </div>
-
-
-            <div class="learn-list">
-
-
-                <div class="learn-item">
-
-                    <div class="learn-item-top">
-
-                        <strong>
-                            The Wealth Mindset
-                        </strong>
-
-                        <span class="learn-item-number">
-                            MODULE 01
-                        </span>
-
-                    </div>
-
-                    <p>
-                        Understand the difference between speculation,
-                        investing, ownership, compounding, and
-                        long-term wealth creation.
-                    </p>
-
-                </div>
-
-
-                <div class="learn-item">
-
-                    <div class="learn-item-top">
-
-                        <strong>
-                            The 100X Stock Formula
-                        </strong>
-
-                        <span class="learn-item-number">
-                            MODULE 02
-                        </span>
-
-                    </div>
-
-                    <p>
-                        Work through the characteristics and questions
-                        that can help identify companies worthy of
-                        deeper investigation.
-                    </p>
-
-                </div>
-
-
-                <div class="learn-item">
-
-                    <div class="learn-item-top">
-
-                        <strong>
-                            How to Research a Company
-                        </strong>
-
-                        <span class="learn-item-number">
-                            MODULE 03
-                        </span>
-
-                    </div>
-
-                    <p>
-                        Learn what information to gather and which
-                        business fundamentals deserve attention
-                        before making an investment decision.
-                    </p>
-
-                </div>
-
-
-                <div class="learn-item">
-
-                    <div class="learn-item-top">
-
-                        <strong>
-                            Growth & Market Opportunity
-                        </strong>
-
-                        <span class="learn-item-number">
-                            MODULE 04
-                        </span>
-
-                    </div>
-
-                    <p>
-                        Explore addressable markets, revenue growth,
-                        product expansion, customer demand, and
-                        other potential drivers of business growth.
-                    </p>
-
-                </div>
-
-
-                <div class="learn-item">
-
-                    <div class="learn-item-top">
-
-                        <strong>
-                            Competitive Advantages
-                        </strong>
-
-                        <span class="learn-item-number">
-                            MODULE 05
-                        </span>
-
-                    </div>
-
-                    <p>
-                        Learn how to think about moats, differentiation,
-                        switching costs, network effects, brand strength,
-                        and other potential advantages.
-                    </p>
-
-                </div>
-
-
-                <div class="learn-item">
-
-                    <div class="learn-item-top">
-
-                        <strong>
-                            Financial Fundamentals
-                        </strong>
-
-                        <span class="learn-item-number">
-                            MODULE 06
-                        </span>
-
-                    </div>
-
-                    <p>
-                        Understand important financial concepts including
-                        revenue, margins, cash flow, profitability,
-                        balance-sheet strength, and valuation.
-                    </p>
-
-                </div>
-
-
-                <div class="learn-item">
-
-                    <div class="learn-item-top">
-
-                        <strong>
-                            Risk & Downside Analysis
-                        </strong>
-
-                        <span class="learn-item-number">
-                            MODULE 07
-                        </span>
-
-                    </div>
-
-                    <p>
-                        Identify potential risks, unfavorable scenarios,
-                        business weaknesses, valuation concerns, and
-                        factors that could invalidate an investment thesis.
-                    </p>
-
-                </div>
-
-
-                <div class="learn-item">
-
-                    <div class="learn-item-top">
-
-                        <strong>
-                            Building a Long-Term Portfolio
-                        </strong>
-
-                        <span class="learn-item-number">
-                            MODULE 08
-                        </span>
-
-                    </div>
-
-                    <p>
-                        Learn principles around position sizing,
-                        diversification, conviction, time horizon,
-                        portfolio construction, and risk management.
-                    </p>
-
-                </div>
-
-
-            </div>
-
-        </div>
-
-    </section>
-
-
-    <!-- =========================
-     PROCESS
-========================= -->
-
-    <section class="section compact dark">
+    <section class="testimonials" id="reviews">
 
         <div class="container">
 
-            <div class="section-header center">
+            <div class="features-header">
 
-                <div class="label">
-                    THE INVESTING PROCESS
+                <div class="section-label">
+                    Community
                 </div>
 
-                <h2>
-                    From idea to investment thesis.
+                <h2 class="section-title">
+                    Built For People Who Want More
                 </h2>
 
-                <p>
-                    A simple process you can use whenever
-                    you're researching a potential investment.
-                </p>
-
             </div>
 
 
-            <div class="process">
+            <div class="testimonial-grid">
 
+                <div class="testimonial">
 
-                <div class="process-step">
-
-                    <div class="process-number">
-                        STEP 01
-                    </div>
-
-                    <h3>
-                        Discover
-                    </h3>
+                    <div class="stars">★★★★★</div>
 
                     <p>
-                        Find companies and industries that
-                        deserve further investigation.
-                    </p>
-
-                </div>
-
-
-                <div class="process-step">
-
-                    <div class="process-number">
-                        STEP 02
-                    </div>
-
-                    <h3>
-                        Research
-                    </h3>
-
-                    <p>
-                        Understand the business, market,
-                        financials, management, and risks.
-                    </p>
-
-                </div>
-
-
-                <div class="process-step">
-
-                    <div class="process-number">
-                        STEP 03
-                    </div>
-
-                    <h3>
-                        Evaluate
-                    </h3>
-
-                    <p>
-                        Compare growth potential, valuation,
-                        competitive advantages, and downside.
-                    </p>
-
-                </div>
-
-
-                <div class="process-step">
-
-                    <div class="process-number">
-                        STEP 04
-                    </div>
-
-                    <h3>
-                        Decide
-                    </h3>
-
-                    <p>
-                        Build your thesis and determine whether
-                        the opportunity fits your strategy.
-                    </p>
-
-                </div>
-
-
-            </div>
-
-        </div>
-
-    </section>
-
-
-    <!-- =========================
-     CHECKLISTS
-========================= -->
-
-    <section class="section large checklist-section">
-
-        <div class="container">
-
-            <div class="section-header center">
-
-                <div class="label">
-                    RESEARCH TOOLKIT
-                </div>
-
-                <h2>
-                    Questions to ask before you invest.
-                </h2>
-
-                <p>
-                    Turn the concepts into a repeatable research
-                    process with practical questions and checklists.
-                </p>
-
-            </div>
-
-
-            <div class="checklist">
-
-
-                <div class="check-card">
-
-                    <h3>
-                        Business Quality
-                    </h3>
-
-                    <ul>
-                        <li>What does the company actually sell?</li>
-                        <li>How does it make money?</li>
-                        <li>What drives customer demand?</li>
-                        <li>Does it have an advantage?</li>
-                        <li>Can the business scale?</li>
-                    </ul>
-
-                </div>
-
-
-                <div class="check-card">
-
-                    <h3>
-                        Growth Potential
-                    </h3>
-
-                    <ul>
-                        <li>How large is the market?</li>
-                        <li>Is the market expanding?</li>
-                        <li>What drives future revenue?</li>
-                        <li>Can margins improve?</li>
-                        <li>What could accelerate growth?</li>
-                    </ul>
-
-                </div>
-
-
-                <div class="check-card">
-
-                    <h3>
-                        Financial Health
-                    </h3>
-
-                    <ul>
-                        <li>Is revenue growing?</li>
-                        <li>Are margins improving?</li>
-                        <li>How much cash does it generate?</li>
-                        <li>How strong is the balance sheet?</li>
-                        <li>Is valuation reasonable?</li>
-                    </ul>
-
-                </div>
-
-
-                <div class="check-card">
-
-                    <h3>
-                        Competitive Advantage
-                    </h3>
-
-                    <ul>
-                        <li>Why can't competitors copy it?</li>
-                        <li>Does the brand matter?</li>
-                        <li>Are switching costs meaningful?</li>
-                        <li>Are network effects present?</li>
-                        <li>Is the advantage durable?</li>
-                    </ul>
-
-                </div>
-
-
-                <div class="check-card">
-
-                    <h3>
-                        Risk Analysis
-                    </h3>
-
-                    <ul>
-                        <li>What could go wrong?</li>
-                        <li>What is the biggest weakness?</li>
-                        <li>What could hurt growth?</li>
-                        <li>What assumptions could fail?</li>
-                        <li>What is the downside?</li>
-                    </ul>
-
-                </div>
-
-
-                <div class="check-card">
-
-                    <h3>
-                        Investment Thesis
-                    </h3>
-
-                    <ul>
-                        <li>Why this company?</li>
-                        <li>Why now?</li>
-                        <li>What creates the upside?</li>
-                        <li>What would change your mind?</li>
-                        <li>What is your time horizon?</li>
-                    </ul>
-
-                </div>
-
-
-            </div>
-
-        </div>
-
-    </section>
-
-
-    <!-- =========================
-     REVIEWS
-========================= -->
-
-    <section class="section dark" id="reviews">
-
-        <div class="container">
-
-            <div class="section-header center">
-
-                <div class="label">
-                    MEMBER FEEDBACK
-                </div>
-
-                <h2>
-                    Built for serious learners.
-                </h2>
-
-                <p>
-                    Replace the examples below with your actual
-                    customer testimonials.
-                </p>
-
-            </div>
-
-
-            <div class="reviews">
-
-
-                <div class="review">
-
-                    <div class="review-stars">
-                        ★★★★★
-                    </div>
-
-                    <p>
-                        “The biggest difference for me was finally
-                        having a framework instead of randomly
-                        researching stocks.”
+                        “The biggest difference for me was having everything laid out in one place. It helped me
+                        understand what I should focus on and gave me a much clearer direction with my finances.”
                     </p>
 
                     <div class="person">
-
-                        <div class="avatar">JD</div>
-
-                        <div>
-                            <strong>James D.</strong>
-                            <span>Member</span>
-                        </div>
-
+                        — Michael R., 57
                     </div>
 
                 </div>
 
 
-                <div class="review">
+                <div class="testimonial">
 
-                    <div class="review-stars">
-                        ★★★★★
-                    </div>
+                    <div class="stars">★★★★★</div>
 
                     <p>
-                        “Everything is organized clearly and gives
-                        me a much better process for researching
-                        companies.”
+                        “This made everything feel much more organized. I finally had a clear framework I could come
+                        back to and follow, instead of feeling overwhelmed by where to start.”</p>
+
+                    <div class="person">
+                        — Jessica M., 31
+                    </div>
+
+                </div>
+
+
+                <div class="testimonial">
+
+                    <div class="stars">★★★★★</div>
+
+                    <p>
+                        "Simple, straightforward and motivating. It gave me a much clearer direction for my financial
+                        goals."
                     </p>
 
                     <div class="person">
-
-                        <div class="avatar">MR</div>
-
-                        <div>
-                            <strong>Michael R.</strong>
-                            <span>Member</span>
-                        </div>
-
+                        — Daniel T., 24
                     </div>
 
                 </div>
-
-
-                <div class="review">
-
-                    <div class="review-stars">
-                        ★★★★★
-                    </div>
-
-                    <p>
-                        “I wanted something that would help me
-                        approach investing more systematically.
-                        This gave me that structure.”
-                    </p>
-
-                    <div class="person">
-
-                        <div class="avatar">AK</div>
-
-                        <div>
-                            <strong>Alex K.</strong>
-                            <span>Member</span>
-                        </div>
-
-                    </div>
-
-                </div>
-
 
             </div>
 
@@ -2219,44 +1283,57 @@
     </section>
 
 
-    <!-- =========================
-     OFFER
-========================= -->
+    <!-- PRICING -->
 
-    <section class="offer-section" id="buy">
+    <section class="pricing" id="buy">
 
         <div class="container">
 
-            <div class="offer">
+            <div class="section-label">
+                Get Access
+            </div>
 
-                <div class="label">
-                    GET STARTED
+            <h2 class="section-title">
+                Your Wealth Journey Starts Here.
+            </h2>
+
+            <p class="section-subtitle" style="margin:auto;">
+                Get instant access to the Wealth Blueprint and start building your personal wealth
+                framework.
+            </p>
+
+            <br><br>
+            <div class="price-card">
+
+                <div class="price-label">
+                    WEALTH BLUEPRINT
                 </div>
-
-                <h2>
-                    Millionaire Wealth Blueprint
-                </h2>
-
-                <p class="offer-sub">
-                    Complete digital investing framework
-                </p>
 
                 <div class="price">
-                    $49
-                </div>
-                <br>
-                <div class="price-note">
-                    One-time payment • Instant digital access
+                    $49<span> one-time</span>
                 </div>
 
-                <a href="https://payhip.com/buy?s=1&qty%5BvXTBi%5D=1&cart_links%5B%5D=vXTBi" class="offer-button">
+                <p>
+                    Instant digital access
+                </p>
+
+                <ul class="check-list" style="text-align:center;">
+                    <li>100x Stocks Formula</li>
+                    <li>Millionaire Mindset Frameworks</li>
+                    <li>Wealth Blueprint</li>
+                    <li>Investor Research Principles</li>
+                    <li>Wealth-Building Strategies</li>
+                    <li>Portfolio Planning</li>
+                    <li>Instant Digital Delivery</li>
+                </ul>
+
+                <!-- REPLACE THIS LINK WITH YOUR CHECKOUT -->
+
+                <a href="https://payhip.com/buy?s=1&cart_links%5B%5D=vXTBi&qty%5BvXTBi%5D=1"
+                    class="primary-btn price-btn">
                     GET INSTANT ACCESS →
                 </a>
 
-                <div class="secure">
-                    Instant delivery
-                </div>
-
             </div>
 
         </div>
@@ -2264,23 +1341,20 @@
     </section>
 
 
-    <!-- =========================
-     FAQ
-========================= -->
+    <!-- FAQ -->
 
-    <section class="section compact" id="faq">
+    <section id="faq">
 
-        ```
         <div class="container">
 
-            <div class="section-header center">
+            <div class="features-header">
 
-                <div class="label">
+                <div class="section-label">
                     FAQ
                 </div>
 
-                <h2>
-                    Questions before you start?
+                <h2 class="section-title">
+                    Frequently Asked Questions
                 </h2>
 
             </div>
@@ -2288,248 +1362,139 @@
 
             <div class="faq">
 
+                <details>
+                    <summary>What is the Wealth Blueprint?</summary>
 
-                <div class="faq-item">
+                    <p>
+                        The Wealth Blueprint is a digital educational guide designed to help you understand the
+                        fundamentals of building wealth. It covers key principles around investing, income growth,
+                        financial habits, and long-term wealth building—all organized into one easy-to-follow framework.
+                    </p>
 
-                    <button class="question">
-                        What is the Wealth Blueprint?
-                        <span class="plus">+</span>
-                    </button>
+                </details>
+                <details>
+                    <summary>Who is the Wealth Blueprint for?</summary>
 
-                    <div class="answer">
+                    <p>
+                        It’s designed for people who want a clearer understanding of how wealth is built and want a
+                        structured framework instead of piecing together information from countless sources. </p>
 
-                        <p>
-                            The Wealth Blueprint is a digital educational guide designed
-                            to help you understand the fundamentals of building wealth.
-                            It covers key principles around investing, income growth,
-                            financial habits, and long-term wealth building — all organized
-                            into one easy-to-follow framework.
-                        </p>
-
-                    </div>
-
-                </div>
+                </details>
 
 
-                <div class="faq-item">
+                <details>
+                    <summary>How do I receive the blueprint?</summary>
 
-                    <button class="question">
-                        Who is the Wealth Blueprint for?
-                        <span class="plus">+</span>
-                    </button>
+                    <p>
+                        After completing your purchase, you’ll receive instant digital access to the Wealth Blueprint as
+                        a PDF. Your access details will be provided immediately after checkout, so you can start reading
+                        right away. </p>
 
-                    <div class="answer">
-
-                        <p>
-                            It’s designed for people who want a clearer understanding of
-                            how wealth is built and want a structured framework instead
-                            of piecing together information from countless sources.
-                        </p>
-
-                    </div>
-
-                </div>
-
-
-                <div class="faq-item">
-
-                    <button class="question">
-                        What's included?
-                        <span class="plus">+</span>
-                    </button>
-
-                    <div class="answer">
-
-                        <p>
-                            The digital package includes the Millionaire Wealth
-                            Blueprint, 100X Stock Formula, research frameworks,
-                            checklists, and the additional resources included
-                            with your purchase.
-                        </p>
-
-                    </div>
-
-                </div>
-
-
-                <div class="faq-item">
-
-                    <button class="question">
-                        What format is it, and will it work on my phone?
-                        <span class="plus">+</span>
-                    </button>
-
-                    <div class="answer">
-
-                        <p>
-                            The Blueprint is a digital product that you can access online.
-                            It works on your phone, tablet, or computer, so you can learn
-                            wherever you are.
-                        </p>
-
-                    </div>
-
-                </div>
+                </details>
 
 
 
 
-                <div class="faq-item">
 
-                    <button class="question">
-                        How do I get it after paying?
-                        <span class="plus">+</span>
-                    </button>
+                <details>
+                    <summary>Do I need investing experience?</summary>
 
-                    <div class="answer">
+                    <p>
+                        Yes. No prior investing experience is required. The material is designed to explain fundamental
+                        concepts in a straightforward way, making it accessible whether you're just getting started or
+                        looking to strengthen your existing knowledge.
+                    </p>
 
-                        <p>
-                            After clicking <strong>Buy Now</strong>, you’ll be redirected to Payhip to complete your
-                            purchase. Enter your email and payment details during checkout. Once your payment is
-                            confirmed, you’ll be given access to your purchased <strong>Wealth Blueprint PDF</strong>
-                            through Payhip, where you can view and download the file.
-                        </p>
-
-                        <p>
-                            You’ll also receive the purchase/access details by email, so you can return to your Payhip
-                            account and access your Wealth Blueprint whenever you need it.
-                        </p>
-
-                    </div>
-
-                </div>
+                </details>
 
 
-                <div class="faq-item">
-
-                    <button class="question">
-                        Do I need investing experience?
-                        <span class="plus">+</span>
-                    </button>
-
-                    <div class="answer">
-
-                        <p>
-                            No. Prior investing experience is not required. The material
-                            is designed to explain fundamental concepts in a straightforward
-                            way, making it accessible whether you’re just getting started
-                            or looking to strengthen your existing knowledge.
-                        </p>
-
-                    </div>
-
-                </div>
 
 
             </div>
 
         </div>
-        ```
 
     </section>
 
 
+    <!-- FINAL CTA -->
 
-
-    <!-- =========================
-     FINAL CTA
-========================= -->
-
-    <section class="final">
+    <section class="final-cta">
 
         <div class="container">
 
-            <div class="final-box">
-
-                <div class="label">
-                    START BUILDING
-                </div>
-
-                <h2>
-                    Learn the framework.
-                    Build your strategy.
-                </h2>
-
-                <p>
-                    Get the Wealth Blueprint and start developing
-                    a more structured approach to researching
-                    investments and building long-term wealth.
-                </p>
-
-                <a href="https://payhip.com/buy?s=1&qty%5BvXTBi%5D=1&cart_links%5B%5D=vXTBi" class="primary">
-                    GET THE BLUEPRINT →
-                </a>
-
+            <div class="section-label">
+                The First Step
             </div>
 
+            <h2>
+                Your Future Wealth Is Built One Decision At A Time.
+            </h2>
 
+            <p>
+                Get the Wealth Blueprint and start creating a more intentional strategy for your financial
+                future.
+            </p>
+
+            <a href="#buy" class="primary-btn">
+                GET THE BLUEPRINT →
+            </a>
 
         </div>
 
     </section>
 
+
+    <!-- FOOTER -->
 
     <footer>
 
         <div class="container footer-inner">
 
-            <span>
-                © 2026 Millionaire Wealth
-            </span>
+            <div>
+                © 2026 Wealth Blueprint. All rights reserved.
+            </div>
 
-            <span>
-                Privacy • Terms
-            </span>
+            <div class="footer-links">
+                <a href="#">Privacy</a>
+                <a href="#">Terms</a>
+                <a href="#">Contact</a>
+            </div>
 
         </div>
 
     </footer>
 
-
-    <!-- MOBILE CTA -->
-
-    <div class="mobile-cta">
-
-        <a href="https://payhip.com/buy?s=1&qty%5BvXTBi%5D=1&cart_links%5B%5D=vXTBi">
-            GET THE BLUEPRINT →
-        </a>
-
-    </div>
-
-
-
-
 </body>
 
 </html>
-
-</style>
-
 <script>
-    const memberCount = document.getElementById("memberCount");
+    const counter = document.getElementById("memberCount");
 
-    let current = 1;
+    const start = 0;
     const target = 327;
+    const duration = 3500;
 
-    const duration = 2200;
-    const startTime = performance.now();
+    let startTime = null;
 
-    function animateMembers(time) {
-        const progress = Math.min((time - startTime) / duration, 1);
+    function animateCount(timestamp) {
+        if (!startTime) startTime = timestamp;
 
-        // Smooth ease-out
-        const eased = 1 - Math.pow(1 - progress, 3);
+        const progress = Math.min((timestamp - startTime) / duration, 1);
 
-        current = Math.floor(300 + (target - 300) * eased);
+        // Fast start, smooth slowdown
+        const easeOut = 1 - Math.pow(1 - progress, 3);
 
-        memberCount.textContent = current + "+";
+        const current = Math.floor(start + (target - start) * easeOut);
+
+        counter.textContent = current + "+";
 
         if (progress < 1) {
-            requestAnimationFrame(animateMembers);
+            requestAnimationFrame(animateCount);
         } else {
-            memberCount.textContent = "327+";
+            counter.textContent = target + "+";
         }
     }
 
-    requestAnimationFrame(animateMembers);
+    requestAnimationFrame(animateCount);
 </script>
