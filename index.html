@@ -116,7 +116,7 @@
             padding: 32px 0 85px;
             position: relative;
             overflow: hidden;
-            margin-top: 1em;
+            margin-top: 3em;
         }
 
         .hero:after {
@@ -207,7 +207,7 @@
         }
 
         @media(max-width:560px) {
-            
+
             .features {
                 display: flex;
                 flex-direction: column;
@@ -1227,7 +1227,6 @@
             align-items: center;
             justify-content: center;
             gap: 10px;
-            margin-top: 1.5em;
 
 
             padding: 12px 18px;
@@ -1242,6 +1241,27 @@
             font-family: inherit;
             white-space: nowrap;
         }
+
+         .member-count {
+            display: inline-flex;
+            align-items: center;
+            justify-content: center;
+            gap: 10px;
+
+
+            padding: 12px 18px;
+            border: 1px solid rgba(212, 175, 55, 0.32);
+            border-radius: 999px;
+
+            background: rgba(12, 12, 12, 0.85);
+            box-shadow:
+                0 8px 30px rgba(0, 0, 0, 0.25),
+                inset 0 0 20px rgba(255, 255, 255, 0.015);
+
+            font-family: inherit;
+            white-space: nowrap;
+        }
+
 
         /* Yellow pulsing dot */
         .member-dot {
@@ -1441,19 +1461,23 @@
                 line-height: 1.75;
             }
 
-             .book-title {
-            font-family: "Playfair Display", serif;
-            font-size: 30px;
-            line-height: 1.02;
-            text-align: center;
-        }
-           
-            .member-count{
+            .book-title {
+                font-family: "Playfair Display", serif;
+                font-size: 30px;
+                line-height: 1.02;
+                text-align: center;
+            }
+
+            .member-count {
                 margin: 1em;
             }
-            .hero{
-                padding:0;
+
+            .hero {
+                padding: 0;
+                            margin-top: 3em;
+
             }
+
             .eyebrow {
                 font-size: 12px;
                 letter-spacing: 1.4px;
@@ -1545,18 +1569,7 @@
      HERO
 ========================= -->
     <!-- Member Count -->
-    <div class="test">
-        <div class="member-count">
-            <span class="member-dot"></span>
-
-            <span class="member-label">Growing community:</span>
-
-            <span class="member-number" id="memberCount">300+</span>
-
-            <span class="member-text">Members</span>
-        </div>
-    </div>
-
+   
     <header class="hero">
 
         <div class="container hero-grid">
@@ -1564,7 +1577,7 @@
 
             <div class="hero-copy">
 
-              
+
 
                 <h1> Learn to Find <span class="gold">High-Growth</span><br> Investment Opportunities. </h1>
 
@@ -1616,7 +1629,6 @@
                 <div class="trust">
 
                     <span class="stars">★★★★★</span>
-                    <span>327+ members</span>
                     <span>•</span>
                     <span>Instant digital access</span>
 
@@ -1660,12 +1672,23 @@
         </div>
 
     </header>
+     <div class="test">
+        <div class="member-count">
+            <span class="member-dot"></span>
+
+            <span class="member-label">Growing community:</span>
+
+            <span class="member-number" id="memberCount">1+</span>
+
+            <span class="member-text">Members</span>
+        </div>
+    </div>
+
 
 
     <!-- =========================
      PROOF BAR
 ========================= -->
-
 
 
 
@@ -2442,6 +2465,18 @@
             </div>
 
         </div>
+            <div class="test">
+        <div class="member-count">
+            <span class="member-dot"></span>
+
+            <span class="member-label">Growing community:</span>
+
+            <span class="member-number" id="memberCount1">1+</span>
+
+            <span class="member-text">Members</span>
+        </div>
+    </div>
+
 
     </section>
 
@@ -2678,30 +2713,68 @@
 </style>
 
 <script>
-    const memberCount = document.getElementById("memberCount");
-
-    let current = 1;
-    const target = 327;
-
-    const duration = 2200;
-    const startTime = performance.now();
-
-    function animateMembers(time) {
-        const progress = Math.min((time - startTime) / duration, 1);
-
-        // Smooth ease-out
-        const eased = 1 - Math.pow(1 - progress, 3);
-
-        current = Math.floor(300 + (target - 300) * eased);
-
-        memberCount.textContent = current + "+";
-
-        if (progress < 1) {
-            requestAnimationFrame(animateMembers);
-        } else {
-            memberCount.textContent = "327+";
-        }
+const counters = [
+    {
+        element: document.getElementById("memberCount"),
+        target: 327
+    },
+    {
+        element: document.getElementById("memberCount1"),
+        target: 327
     }
+];
 
-    requestAnimationFrame(animateMembers);
+const observer = new IntersectionObserver((entries, observer) => {
+    entries.forEach(entry => {
+        if (entry.isIntersecting) {
+
+            const counter = counters.find(
+                c => c.element === entry.target
+            );
+
+            if (!counter) return;
+
+            const duration = 2200;
+            const startTime = performance.now();
+
+            function animate(time) {
+                const progress = Math.min(
+                    (time - startTime) / duration,
+                    1
+                );
+
+                // Smooth ease-out
+                const eased = 1 - Math.pow(1 - progress, 3);
+
+                const current = Math.floor(
+                    1 + (counter.target - 1) * eased
+                );
+
+                counter.element.textContent = current + "+";
+
+                if (progress < 1) {
+                    requestAnimationFrame(animate);
+                } else {
+                    counter.element.textContent =
+                        counter.target + "+";
+                }
+            }
+
+            requestAnimationFrame(animate);
+
+            // Only animate once
+            observer.unobserve(entry.target);
+        }
+    });
+}, {
+    threshold: 0.3
+});
+
+
+// Watch both counters
+counters.forEach(counter => {
+    if (counter.element) {
+        observer.observe(counter.element);
+    }
+});
 </script>
