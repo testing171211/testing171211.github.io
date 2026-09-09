@@ -6,8 +6,9 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
     <title>Millionaire Wealth Blueprint</title>
-
-    <link rel="preconnect" href="https://fonts.googleapis.com">
+<!-- Browser Tab Icon -->
+<link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'%3E%3Crect width='100' height='100' rx='18' fill='%23080808'/%3E%3Ctext x='50' y='69' font-size='62' text-anchor='middle' fill='%23D4AF37' font-family='Arial' font-weight='700'%3EW%3C/text%3E%3C/svg%3E">
+<link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link
         href="https://fonts.googleapis.com/css2?family=DM+Sans:wght@400;500;600;700&family=Playfair+Display:wght@500;600;700;800&display=swap"
@@ -1242,7 +1243,7 @@
             white-space: nowrap;
         }
 
-         .member-count {
+        .member-count {
             display: inline-flex;
             align-items: center;
             justify-content: center;
@@ -1474,7 +1475,7 @@
 
             .hero {
                 padding: 0;
-                            margin-top: 3em;
+                margin-top: 1em;
 
             }
 
@@ -1569,7 +1570,7 @@
      HERO
 ========================= -->
     <!-- Member Count -->
-   
+
     <header class="hero">
 
         <div class="container hero-grid">
@@ -1629,6 +1630,8 @@
                 <div class="trust">
 
                     <span class="stars">★★★★★</span>
+                    <span>327+ members</span>
+
                     <span>•</span>
                     <span>Instant digital access</span>
 
@@ -1672,7 +1675,7 @@
         </div>
 
     </header>
-     <div class="test">
+    <div class="test">
         <div class="member-count">
             <span class="member-dot"></span>
 
@@ -2465,17 +2468,17 @@
             </div>
 
         </div>
-            <div class="test">
-        <div class="member-count">
-            <span class="member-dot"></span>
+        <div class="test">
+            <div class="member-count">
+                <span class="member-dot"></span>
 
-            <span class="member-label">Growing community:</span>
+                <span class="member-label">Growing community:</span>
 
-            <span class="member-number" id="memberCount1">1+</span>
+                <span class="member-number" id="memberCount1">1+</span>
 
-            <span class="member-text">Members</span>
+                <span class="member-text">Members</span>
+            </div>
         </div>
-    </div>
 
 
     </section>
@@ -2713,68 +2716,68 @@
 </style>
 
 <script>
-const counters = [
-    {
-        element: document.getElementById("memberCount"),
-        target: 327
-    },
-    {
-        element: document.getElementById("memberCount1"),
-        target: 327
-    }
-];
+    const counters = [
+        {
+            element: document.getElementById("memberCount"),
+            target: 327
+        },
+        {
+            element: document.getElementById("memberCount1"),
+            target: 327
+        }
+    ];
 
-const observer = new IntersectionObserver((entries, observer) => {
-    entries.forEach(entry => {
-        if (entry.isIntersecting) {
+    const observer = new IntersectionObserver((entries, observer) => {
+        entries.forEach(entry => {
+            if (entry.isIntersecting) {
 
-            const counter = counters.find(
-                c => c.element === entry.target
-            );
-
-            if (!counter) return;
-
-            const duration = 2200;
-            const startTime = performance.now();
-
-            function animate(time) {
-                const progress = Math.min(
-                    (time - startTime) / duration,
-                    1
+                const counter = counters.find(
+                    c => c.element === entry.target
                 );
 
-                // Smooth ease-out
-                const eased = 1 - Math.pow(1 - progress, 3);
+                if (!counter) return;
 
-                const current = Math.floor(
-                    1 + (counter.target - 1) * eased
-                );
+                const duration = 2200;
+                const startTime = performance.now();
 
-                counter.element.textContent = current + "+";
+                function animate(time) {
+                    const progress = Math.min(
+                        (time - startTime) / duration,
+                        1
+                    );
 
-                if (progress < 1) {
-                    requestAnimationFrame(animate);
-                } else {
-                    counter.element.textContent =
-                        counter.target + "+";
+                    // Smooth ease-out
+                    const eased = 1 - Math.pow(1 - progress, 3);
+
+                    const current = Math.floor(
+                        1 + (counter.target - 1) * eased
+                    );
+
+                    counter.element.textContent = current + "+";
+
+                    if (progress < 1) {
+                        requestAnimationFrame(animate);
+                    } else {
+                        counter.element.textContent =
+                            counter.target + "+";
+                    }
                 }
+
+                requestAnimationFrame(animate);
+
+                // Only animate once
+                observer.unobserve(entry.target);
             }
+        });
+    }, {
+        threshold: 0.3
+    });
 
-            requestAnimationFrame(animate);
 
-            // Only animate once
-            observer.unobserve(entry.target);
+    // Watch both counters
+    counters.forEach(counter => {
+        if (counter.element) {
+            observer.observe(counter.element);
         }
     });
-}, {
-    threshold: 0.3
-});
-
-
-// Watch both counters
-counters.forEach(counter => {
-    if (counter.element) {
-        observer.observe(counter.element);
-    }
-});
 </script>
